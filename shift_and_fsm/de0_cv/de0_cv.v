@@ -179,51 +179,21 @@ vga_controller vga_ins(.iRST_n(DLY_RST),
 
 `endif
 
+//////// USER CODE //////////
 
-      input              CLOCK_50,
-      output      [6:0]  HEX0,
-
-      ///////// HEX1 /////////
-      output      [6:0]  HEX1,
-
-      ///////// HEX2 /////////
-      output      [6:0]  HEX2,
-
-      ///////// HEX3 /////////
-      output      [6:0]  HEX3,
-
-      ///////// HEX4 /////////
-      output      [6:0]  HEX4,
-
-      ///////// HEX5 /////////
-      output      [6:0]  HEX5,
-
-      ///////// KEY /////////
-      input       [3:0]  KEY,
-
-      ///////// LEDR /////////
-      output      [9:0]  LEDR,
-
-      ///////// RESET /////////
-      input              RESET_N,
-      ///////// SW /////////
-      input       [9:0]  SW,
-
-module de2_115_user
+de0_cv_user de0_cv_user
 (
-    input        CLOCK_50,
-    input        RESET_N,
-    input  [3:0] KEY,
-    input  [9:0] SW,
-    output [9:0] LEDR,
-    output [6:0] HEX0,
-    output [6:0] HEX1,
-    output [6:0] HEX2,
-    output [6:0] HEX3,
-    output [6:0] HEX4,
-    output [6:0] HEX5
+    .CLOCK_50 ( CLOCK_50 ),
+    .RESET_N  ( RESET_N  ),
+    .KEY      ( KEY      ), 
+    .SW       ( SW       ), 
+    .LEDR     ( LEDR     ), 
+    .HEX0     ( HEX0     ), 
+    .HEX1     ( HEX1     ), 
+    .HEX2     ( HEX2     ), 
+    .HEX3     ( HEX3     ), 
+    .HEX4     ( HEX4     ), 
+    .HEX5     ( HEX5     )
 );
-
-
 	
 endmodule

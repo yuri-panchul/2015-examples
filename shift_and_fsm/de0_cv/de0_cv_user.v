@@ -137,7 +137,7 @@ endmodule
 
 //--------------------------------------------------------------------
 
-module de0_cv
+module de0_cv_user
 (
     input        CLOCK_50,
     input        RESET_N,
