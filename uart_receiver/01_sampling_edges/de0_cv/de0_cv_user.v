@@ -1,4 +1,4 @@
-module sampler
+module edge_sampler
 (
     input  clock,
     input  reset_n,
@@ -92,7 +92,7 @@ module de0_cv_user
     
     wire [11:0] counter1, counter2;
 
-    sampler
+    edge_sampler
     (
         .clock    ( CLOCK_50 ),
         .reset_n  ( RESET_N  ),
