@@ -1,0 +1,105 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/github/examples/uart_receiver/02_displaying_bytes/de0_cv/sim
+vde0_cv
+Z1 !s110 1439156417
+!i10b 1
+!s100 n8bcmM96[N@VK1JE12H^E3
+I?QaIMnk7XPTj=mUf^VW9U0
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+R0
+w1439145637
+8../de0_cv.v
+F../de0_cv.v
+L0 36
+Z3 OV;L;10.3d;59
+r1
+!s85 0
+31
+Z4 !s108 1439156417.635000
+Z5 !s107 ../testbench.v|../de0_cv_user.v|../de0_cv.v|
+Z6 !s90 ../de0_cv.v|../de0_cv_user.v|../testbench.v|
+!i113 1
+vde0_cv_user
+R1
+!i10b 1
+!s100 78]X6J02UUb4bjQN^f4^71
+IC_<AfWdi;h1g?JXNfeZ;M2
+R2
+R0
+Z7 w1439155723
+Z8 8../de0_cv_user.v
+Z9 F../de0_cv_user.v
+L0 148
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+vsingle_digit_display
+R1
+!i10b 1
+!s100 ;N=6[AH1_CL;MSUDGa:AR0
+IRUo3mXI>>DGQUlZUT`87f1
+R2
+R0
+R7
+R8
+R9
+L0 118
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+vtestbench
+R1
+!i10b 1
+!s100 h9R4_KL`XPG[ZF5c@eRAY0
+IMS?GVQV8kYcHeUzB8@77b1
+R2
+R0
+w1439156378
+8../testbench.v
+F../testbench.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+vuart_receiver
+R1
+!i10b 1
+!s100 DQFDER6j9]D^@`]MG9n1>3
+I1T_CW9Ma7aRj[9hdReKMV1
+R2
+R0
+R7
+R8
+R9
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1

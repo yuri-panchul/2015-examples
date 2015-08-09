@@ -8,7 +8,7 @@ module uart_receiver
 );
 
     parameter  clock_frequency        = 50000000;
-    parameter  baud_rate              = 115200;
+    parameter  baud_rate              = 1200;
     localparam clock_cycles_in_symbol = clock_frequency / baud_rate;
 
     // Finding edge for start bit
@@ -47,7 +47,7 @@ module uart_receiver
 
     reg       shift;
     reg [7:0] shifted_1;
-    assign    byte_ready = shifted_1 [0];
+    assign    byte_ready = shifted_1 [7];
 
     always @ (posedge clock or negedge reset_n)
     begin
@@ -58,11 +58,11 @@ module uart_receiver
         else if (shift)
         begin
             if (shifted_1 == 0)
-                shifted_1 <= 8'b10000000;
+                shifted_1 <= 1;
             else
-                shifted_1 <= shifted_1 >> 1;
+                shifted_1 <= shifted_1 << 1;
 
-            byte_data <= { rx, byte_data [7:1] };
+            byte_data <= (byte_data << 1) | rx;
         end
         else if (byte_ready)
         begin
