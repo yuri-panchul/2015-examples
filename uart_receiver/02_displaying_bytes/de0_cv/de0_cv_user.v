@@ -162,7 +162,7 @@ module de0_cv_user
     inout  [35:0] GPIO_1
 );
 
-    wire uart_rx = GPIO_1 [35];
+    wire uart_rx = GPIO_1 [31];
 
     assign LEDR = { 10 { uart_rx } };
     
