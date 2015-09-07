@@ -32,6 +32,17 @@ module srec_parser
         LF                 = 5'd17
         ;
 
+    localparam [7:0]
+        CHAR_LF = 8'h0A,
+        CHAR_CR = 8'h0D,
+        CHAR_0  = 8'h30,
+        CHAR_3  = 8'h30,
+        CHAR_9  = 8'h30,
+        CHAR_A  = 8'h41,
+        CHAR_F  = 8'h46,
+        CHAR_S  = 8'h53
+        ;
+
     reg  [3:0] nibble;
     reg        nibble_error;
 
@@ -40,10 +51,10 @@ module srec_parser
        nibble       = 0;
        nibble_error = 0;
 
-       if (char_data >= "0" && char_data <= "9")
-           nibble = char_data - "0";
-       else if (char_data >= "A" && char_data <= "F")
-           nibble = char_data - "A";
+       if (char_data >= CHAR_0 && char_data <= CHAR_9)
+           nibble = char_data - CHAR_0;
+       else if (char_data >= CHAR_A && char_data <= CHAR_F)
+           nibble = char_data - CHAR_A;
        else
            nibble_error = 1;
     end
@@ -79,7 +90,7 @@ module srec_parser
 
             WAITING_S:
 
-                if (char_data != "S")
+                if (char_data != CHAR_S)
                     combined_error = 1;
 
             GET_TYPE:
@@ -88,8 +99,8 @@ module srec_parser
 
             GET_COUNT_7_4, GET_COUNT_3_0:
             begin
-                count = (count << 4) | nibble_data;
-                combined_error = combined_error | nibble_error;
+                count = (count << 4) | nibble;
+                // combined_error = combined_error | nibble_error;
             end
 
             GET_ADDRESS_31_28 , GET_ADDRESS_27_24,
@@ -97,32 +108,33 @@ module srec_parser
             GET_ADDRESS_15_12 , GET_ADDRESS_11_08,
             GET_ADDRESS_07_04 :
             begin
-                address = (address << 4) | nibble_data;
-                combined_error = combined_error | nibble_error;
+                address = (address << 4) | nibble;
+                // combined_error = combined_error | nibble_error;
             end
 
             GET_ADDRESS_03_00:
             begin
-                address = ((address << 4) | nibble_data) - 1;
-                combined_error = combined_error | nibble_error;
+                address = ((address << 4) | nibble) - 1;
+                // combined_error = combined_error | nibble_error;
             end
 
             GET_BYTE_7_4:
             begin
-                data_byte [7:0] = nibble_data;
+                byte_data [7:4] = nibble;
                 combined_error = combined_error | nibble_error;
             end
 
             GET_BYTE_3_0:
             begin
                 address = address + 1;
+                byte_data [3:0] = nibble;
 
-                if (rec_type == "3")
+                if (rec_type == CHAR_3)
                     write = 1;
 
-                combined_error = combined_error | byte_error;
+                // combined_error = combined_error | nibble_error;
 
-                count = count - 1;
+                count = count - 8'd1;
 
                 if (count > 1)
                     state = GET_BYTE_7_4;
@@ -130,14 +142,14 @@ module srec_parser
 
             CHECK_SUM_7_4, CHECK_SUM_3_0:
 
-                combined_error = combined_error | nibble_error;
+                ; // combined_error = combined_error | nibble_error;
 
             CR:
-                combined_error = combined_error | (char_data != 8'h0D);    
+                ; // combined_error = combined_error | (char_data != CHAR_CR);    
 
             LF:
             begin
-                combined_error = combined_error | (char_data != 8'h0A);
+                // combined_error = combined_error | (char_data != CHAR_LF);
                 state = WAITING_S;
             end
 
@@ -153,9 +165,9 @@ module srec_parser
         reg_byte_data <= byte_data;
     end
 
-    always @(posedge clock or negedge reset)
+    always @(posedge clock or negedge reset_n)
     begin
-        if (! resetn_n)
+        if (! reset_n)
         begin
             reg_state          <= WAITING_S; 
             reg_combined_error <= 0;

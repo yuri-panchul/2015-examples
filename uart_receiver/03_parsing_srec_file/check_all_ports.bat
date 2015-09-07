@@ -8,6 +8,7 @@ mode com6
 mode com7
 mode com8
 mode com9
+pause
 mode com10
 mode com11
 mode com12
@@ -18,6 +19,7 @@ mode com16
 mode com17
 mode com18
 mode com19
+pause
 mode com20
 mode com21
 mode com22
