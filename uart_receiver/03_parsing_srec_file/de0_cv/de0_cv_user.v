@@ -30,24 +30,29 @@ module de0_cv_user
     );                     
 
     wire        error;
+    wire [ 7:0] error_location;
+
     wire [31:0] write_address;
     wire [ 7:0] write_byte;
     wire        write_enable;
 
     srec_parser srec_parser
     (
-        .clock         ( CLOCK_50      ),
-        .reset_n       ( RESET_N       ),
-        .char_data     ( char_data     ),
-        .char_ready    ( char_ready    ), 
-        
-        .error         ( error         ),
-        .write_address ( write_address ),
-        .write_byte    ( write_byte    ),
-        .write_enable  ( write_enable  )
+        .clock           ( CLOCK_50       ),
+        .reset_n         ( RESET_N        ),
+
+        .char_data       ( char_data      ),
+        .char_ready      ( char_ready     ), 
+
+        .error           ( error          ),
+        .error_location  ( error_location ),
+
+        .write_address   ( write_address  ),
+        .write_byte      ( write_byte     ),
+        .write_enable    ( write_enable   )
     );
 
-    assign LEDR = { 10 { error } };
+    assign LEDR = { error, 1'b0, error_location };
     
     single_digit_display digit_0 ( write_byte    [ 3: 0] , HEX0 );
     single_digit_display digit_1 ( write_byte    [ 7: 4] , HEX1 );
