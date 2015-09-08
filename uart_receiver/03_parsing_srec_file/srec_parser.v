@@ -47,7 +47,7 @@ module srec_parser
         ;
 
     reg  [3:0] nibble;
-    reg  [7:0] nibble_error;
+    reg  nibble_error;
 
     always @*
     begin
