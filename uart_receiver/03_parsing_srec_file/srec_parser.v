@@ -89,7 +89,7 @@ module srec_parser
             case (reg_state)
 
             WAITING_S:
-                ;
+                if (char_data != CHAR_S) state = WAITING_S;
 
             GET_TYPE:
 
@@ -177,7 +177,7 @@ module srec_parser
         else if (char_ready && ! error)
         begin
             case (reg_state)
-            WAITING_S:  if ( char_data != CHAR_S                          ) error <= 1;
+            WAITING_S:  ; // if ( char_data != CHAR_S                          ) error <= 1;
             CR:         if ( char_data != CHAR_CR && char_data != CHAR_LF ) error <= 1;
             LF:         if ( char_data != CHAR_LF                         ) error <= 1;
             default:    if ( nibble_error                                 ) error <= 1;
