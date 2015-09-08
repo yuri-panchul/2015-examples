@@ -57,7 +57,7 @@ module srec_parser
        if (char_data >= CHAR_0 && char_data <= CHAR_9)
            nibble = char_data - CHAR_0;
        else if (char_data >= CHAR_A && char_data <= CHAR_F)
-           nibble = char_data - CHAR_A;
+           nibble = char_data - CHAR_A + 10;
        else
            nibble_error = 1;
     end
@@ -136,7 +136,8 @@ module srec_parser
                 ;
 
             CR:
-                ;
+                if (char_data == CHAR_LF)
+                    state = WAITING_S;
 
             LF:
                 state = WAITING_S;
@@ -176,13 +177,10 @@ module srec_parser
         else if (char_ready && ! error)
         begin
             case (reg_state)
-            WAITING_S:  if ( char_data != CHAR_S  ) error <= 1;
-
-            CR:         if ( char_data != CHAR_CR ) error <= 1;
-
-            LF:         if ( char_data != CHAR_LF ) error <= 1;
-
-            default:    if ( nibble_error         ) error <= 1;
+            WAITING_S:  if ( char_data != CHAR_S                          ) error <= 1;
+            CR:         if ( char_data != CHAR_CR && char_data != CHAR_LF ) error <= 1;
+            LF:         if ( char_data != CHAR_LF                         ) error <= 1;
+            default:    if ( nibble_error                                 ) error <= 1;
             endcase
         end
     end
