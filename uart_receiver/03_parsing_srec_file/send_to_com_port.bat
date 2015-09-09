@@ -1,1 +1,3 @@
-type test.rec >\\.\COM%1
+set a=16
+mode com%a% baud=115200 parity=n data=8 stop=1 to=off xon=off odsr=off octs=off dtr=off rts=off idsr=off
+type test.rec >\\.\COM%a%

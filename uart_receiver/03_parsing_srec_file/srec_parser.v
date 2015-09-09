@@ -90,7 +90,8 @@ module srec_parser
             case (reg_state)
 
             WAITING_S:
-                if (char_data != CHAR_S) state = WAITING_S;
+
+                ;
 
             GET_TYPE:
 

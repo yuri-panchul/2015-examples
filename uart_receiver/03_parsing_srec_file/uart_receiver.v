@@ -11,19 +11,37 @@ module uart_receiver
     parameter  baud_rate              = 115200;
     localparam clock_cycles_in_symbol = clock_frequency / baud_rate;
 
-    // Finding edge for start bit
+    // Synchronize rx input to clock
 
-    reg prev_rx;
+    reg rx_sync1, rx_sync;
 
     always @(posedge clock or negedge reset_n)
     begin
         if (! reset_n)
-            prev_rx <= 1;
+        begin
+            rx_sync1 <= 1;
+            rx_sync  <= 1;
+        end
         else
-            prev_rx <= rx;
+        begin
+            rx_sync1 <= rx;
+            rx_sync  <= rx_sync1;
+        end
     end
 
-    wire start_bit_edge = prev_rx & ! rx;
+    // Finding edge for start bit
+
+    reg prev_rx_sync;
+
+    always @(posedge clock or negedge reset_n)
+    begin
+        if (! reset_n)
+            prev_rx_sync <= 1;
+        else
+            prev_rx_sync <= rx_sync;
+    end
+
+    wire start_bit_edge = prev_rx_sync & ! rx_sync;
 
     // Counter to measure distance between symbols
 

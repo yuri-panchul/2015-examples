@@ -29,7 +29,8 @@ module de0_cv_user
         .byte_ready ( char_ready )
     );                     
 
-    wire        error;
+    wire        format_error;
+    wire        checksum_error;
     wire [ 7:0] error_location;
 
     wire [31:0] write_address;
