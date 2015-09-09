@@ -6,7 +6,8 @@ module testbench;
     reg  [ 7:0] char_data;
     reg         char_ready;
     
-    wire        error;
+    wire        format_error;
+    wire        checksum_error;
     wire [ 7:0] error_location;
 
     wire [31:0] write_address;
@@ -21,7 +22,8 @@ module testbench;
         char_data,
         char_ready,
 
-        error,
+        format_error,
+        checksum_error,
         error_location,
 
         write_address,
@@ -61,7 +63,10 @@ module testbench;
         file = $fopen ("test.rec", "r");
 
         if (file == 0)
-            $fatal ("Cannot open test file");
+        begin
+            $display ("Cannot open test file");
+            $finish;
+        end
 
         c = $fgetc (file);
 
@@ -77,7 +82,30 @@ module testbench;
             c = $fgetc (file);
         end
 
+        $display;
         $finish;
     end
+
+    reg [31:0] prev_write_address;
+
+    always @ (posedge clock)
+        if (write_enable)
+        begin
+            if (   write_address != prev_write_address + 1
+                || write_address [3:0] == 0 )
+            begin
+                $write ("\nWRITE : %h", write_address);
+            end
+
+            $write (" %h", write_byte);
+
+            prev_write_address = write_address;
+        end
+
+    always @ (posedge clock)
+        if (format_error)
+            $display ("ERROR : FORMAT : %h", error_location);
+        else if (checksum_error)
+            $display ("ERROR : CHECKSUM : %h", error_location);
 
 endmodule

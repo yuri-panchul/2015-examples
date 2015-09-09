@@ -6,7 +6,8 @@ module srec_parser
     input      [ 7:0] char_data,
     input             char_ready,
 
-    output reg        error,
+    output reg        format_error,
+    output reg        checksum_error,
     output reg [ 7:0] error_location,
 
     output     [31:0] write_address,
@@ -133,7 +134,7 @@ module srec_parser
             end
 
             CHECK_SUM_7_4, CHECK_SUM_3_0:
-                ;
+                byte_data = (byte_data << 4) | nibble;
 
             CR:
                 if (char_data == CHAR_LF)
@@ -172,24 +173,73 @@ module srec_parser
     begin
         if (! reset_n)
         begin
-            error <= 0;
+            format_error <= 0;
         end
-        else if (char_ready && ! error)
+        else if (char_ready && ! format_error)
         begin
             case (reg_state)
-            WAITING_S:  ; // if ( char_data != CHAR_S                          ) error <= 1;
-            CR:         if ( char_data != CHAR_CR && char_data != CHAR_LF ) error <= 1;
-            LF:         if ( char_data != CHAR_LF                         ) error <= 1;
-            default:    if ( nibble_error                                 ) error <= 1;
+            WAITING_S:  if (    char_data != CHAR_S  ) format_error <= 1;
+
+            CR:         if (    char_data != CHAR_CR
+                             && char_data != CHAR_LF )
+                                                       format_error <= 1;
+
+            LF:         if (    char_data != CHAR_LF ) format_error <= 1;
+            default:    if (    nibble_error         ) format_error <= 1;
             endcase
         end
     end
 
+    reg [7:0] checksum;
+
     always @(posedge clock or negedge reset_n)
     begin
         if (! reset_n)
-            error_location <= -1;
-        else if (char_ready)
+        begin
+            checksum_error <= 0;
+        end
+        else if (char_ready && ! checksum_error)
+        begin
+            case (reg_state)
+
+            WAITING_S:
+
+                checksum <= 0;
+
+            GET_COUNT_7_4     ,
+            GET_ADDRESS_31_28 ,
+            GET_ADDRESS_23_20 ,
+            GET_ADDRESS_15_12 ,
+            GET_ADDRESS_07_04 ,
+            GET_BYTE_7_4      :
+
+                checksum <= checksum + { nibble, 4'b0 };
+
+            GET_COUNT_3_0     ,
+            GET_ADDRESS_27_24 ,
+            GET_ADDRESS_19_16 ,
+            GET_ADDRESS_11_08 ,
+            GET_ADDRESS_03_00 ,
+            GET_BYTE_3_0      :
+
+                checksum <= checksum + nibble;
+
+            CHECK_SUM_3_0:
+
+                if ((~ checksum) != byte_data)
+                    checksum_error <= 1;
+
+            endcase
+        end
+    end
+
+    wire error = format_error | checksum_error;
+
+    always @(posedge clock or negedge reset_n)
+    begin
+        if (! reset_n)
+            error_location <= 0;
+        else if (char_ready && ! error)
             error_location <= error_location + 1;
     end
 
