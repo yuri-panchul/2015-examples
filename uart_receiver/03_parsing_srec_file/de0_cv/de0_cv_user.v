@@ -29,6 +29,7 @@ module de0_cv_user
         .byte_ready ( char_ready )
     );                     
 
+    wire        in_progress;
     wire        format_error;
     wire        checksum_error;
     wire [ 7:0] error_location;
@@ -45,6 +46,7 @@ module de0_cv_user
         .char_data       ( char_data      ),
         .char_ready      ( char_ready     ), 
 
+        .in_progress     ( in_progress    ),
         .format_error    ( format_error   ),
         .checksum_error  ( checksum_error ),
         .error_location  ( error_location ),
@@ -54,7 +56,7 @@ module de0_cv_user
         .write_enable    ( write_enable   )
     );
 
-    assign LEDR = { format_error, checksum_error, error_location };
+    assign LEDR = { in_progress, format_error, checksum_error, error_location [6:0] };
     
     single_digit_display digit_0 ( write_byte    [ 3: 0] , HEX0 );
     single_digit_display digit_1 ( write_byte    [ 7: 4] , HEX1 );
