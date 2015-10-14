@@ -50,7 +50,7 @@ module testbench;
 
         repeat (2000)
         begin
-            @ (posedge clock);
+            @ (negedge clock);
             sdo <= $random;
         end
 
