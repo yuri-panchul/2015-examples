@@ -1,4 +1,4 @@
-module cmods6
+module cmod_s6
 (
     // input        CLK,         // FPGA_GCLK, 8MHz
     input        CLK_LFC,     // FPGA_LFC, 1 Hz

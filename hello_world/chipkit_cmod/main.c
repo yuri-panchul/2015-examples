@@ -15,8 +15,8 @@ void main (void)
     for (;;)
     {
         PORTB = ~ 0;
-        delay (100);
+        delay (50);
         PORTB = 0;
-        delay (1000);
+        delay (50);
     }
 }
