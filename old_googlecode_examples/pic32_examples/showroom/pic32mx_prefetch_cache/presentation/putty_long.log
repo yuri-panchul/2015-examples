@@ -1,0 +1,2693 @@
+UART: Peripheral bus: 20000000 Hz, baud rate: 9600
+************************************************************
+************************************************************
+************************************************************
+*                                                          *
+*       Sep  6 2013                                        *
+*       20:35:31                                           *
+*                                                          *
+************************************************************
+
+array_in_flash dump:
+
+                             ******** ********
+9D0038C8:  2A2A2A2A 00002A2A 00000000 00000001
+9D0038D8:  00000002 00000003 00000004 00000005
+9D0038E8:  00000006 00000007 00000008 00000009
+9D0038F8:  0000000A 0000000B 0000000C 0000000D
+9D003908:  0000000E 0000000F 27BDFFA8 AFB60048
+9D003918:  AFB3003C AFB00030 AFBF0054 AFBE0050
+9D003928:  AFB7004C AFB50044 AFB40040 AFB20038
+9D003938:  AFB10034 00809821 00A08021 AFA60060
+
+
+array_in_ram dump:
+
+                             ******** ********
+A0000338:  00000000 00000000 00000000 00000001
+A0000348:  00000002 00000003 00000004 00000005
+A0000358:  00000006 00000007 00000008 00000009
+A0000368:  0000000A 0000000B 0000000C 0000000D
+A0000378:  0000000E 0000000F 00000000 00000000
+A0000388:  00000000 00000000 00000000 00000000
+A0000398:  00000000 00000000 00000000 00000000
+A00003A8:  00000000 00000000 00000000 00000000
+
+************************************************************
+*                                                          *
+*       Default configuration                              *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                  340040
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 7 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000020:  00003021 00001021 3C079D00 24E738C8
+9D000030:  24E50040 0B400016 240803E8 8C640000
+9D000040:  24630004 1465FFFD 00441021 24C60001
+9D000050:  10C80003 00000000 0B40000F 00E01821
+9D000060:  03E00008 00000000 00003821 00001021
+9D000070:  3C06A000 24C60338 24050010 0B40002A
+9D000080:  240803E8 00032080 00862021 8C840000
+9D000090:  24630001 1465FFFB 00441021 24E70001
+
+program_in_flash_data_in_ram____loop                  404040
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 7 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D000068:  03E00008 00000000 00003821 00001021
+9D000078:  3C06A000 24C60338 24050010 0B40002A
+9D000088:  240803E8 00032080 00862021 8C840000
+9D000098:  24630001 1465FFFB 00441021 24E70001
+9D0000A8:  10E80003 00000000 0B400021 00001821
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+
+program_in_ram___data_in_flash__loop                  117013
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 7 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003130:  00003021 00001021 3C079D00 24E738C8
+A0003140:  24E50040 08000C5A 240803E8 8C640000
+A0003150:  24630004 1465FFFD 00441021 24C60001
+A0003160:  10C80003 00000000 08000C53 00E01821
+A0003170:  03E00008 00000000 00A72821 8FA60020
+A0003180:  00A62821 8FA70024 00A72821 00451021
+A0003190:  24840001 240501F4 1485FFA7 8FBE0054
+A00031A0:  8FB70050 8FB6004C 8FB50048 8FB40044
+
+program_in_ram___data_in_ram____loop                  101013
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 7 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003090:  00003821 00001021 3C06A000 24C60338
+A00030A0:  24050010 08000C34 240803E8 00032080
+A00030B0:  00862021 8C840000 24630001 1465FFFB
+A00030C0:  00441021 24E70001 10E80003 00000000
+A00030D0:  08000C2B 00001821 03E00008 00000000
+A00030E0:  27BDFFE8 AFBF0014 AFB00010 40024800
+A00030F0:  0080F809 AF828024 00408021 40034800
+A0003100:  8F828024 00621023 AF828024 3C02A000
+
+program_in_flash_data_in_flash__long_sequence         300604
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 7 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+9D0000E8:  3C1E9D00 27DE38C8 00001021 00001821
+9D0000F8:  8FD70000 8FD00004 8FCF0008 8FCE000C
+9D000108:  8FCD0010 8FCC0014 8FCB0018 8FCA001C
+9D000118:  8FC90020 8FC80024 8FC70028 8FC6002C
+9D000128:  8FC50030 8FC40034 8FD10038 AFB101A8
+
+program_in_flash_data_in_ram____long_sequence         237100
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 7 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000880:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+9D000890:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+9D0008A0:  AFB101B8 AFB001B4 00001021 00002021
+9D0008B0:  3C03A000 8C780338 247E0338 8FD90004
+9D0008C0:  8FD70008 8FD6000C 8FD50010 8FD40014
+9D0008D0:  8FD30018 8FD2001C 8FD10020 8FD00024
+9D0008E0:  8FCF0028 8FCE002C 8FCD0030 8FCC0034
+9D0008F0:  8FCB0038 8FCA003C 8C690338 8FC80004
+
+program_in_ram___data_in_flash__long_sequence         114345
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 7 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0002000:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+A0002010:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+A0002020:  AFB101B8 AFB001B4 3C1E9D00 27DE38C8
+A0002030:  00001021 00001821 8FD70000 8FD00004
+A0002040:  8FCF0008 8FCE000C 8FCD0010 8FCC0014
+A0002050:  8FCB0018 8FCA001C 8FC90020 8FC80024
+A0002060:  8FC70028 8FC6002C 8FC50030 8FC40034
+A0002070:  8FD10038 AFB101A8 8FD9003C AFB90000
+
+program_in_ram___data_in_ram____long_sequence          66594
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 7 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+A00027C8:  03E00008 27BD01D8 27BDFE28 AFBE01D4
+A00027D8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+A00027E8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+A00027F8:  00001021 00002021 3C03A000 8C780338
+A0002808:  247E0338 8FD90004 8FD70008 8FD6000C
+A0002818:  8FD50010 8FD40014 8FD30018 8FD2001C
+A0002828:  8FD10020 8FD00024 8FCF0028 8FCE002C
+A0002838:  8FCD0030 8FCC0034 8FCB0038 8FCA003C
+
+************************************************************
+*                                                          *
+*       Lower number of flash wait states                  *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                  170022
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000020:  00003021 00001021 3C079D00 24E738C8
+9D000030:  24E50040 0B400016 240803E8 8C640000
+9D000040:  24630004 1465FFFD 00441021 24C60001
+9D000050:  10C80003 00000000 0B40000F 00E01821
+9D000060:  03E00008 00000000 00003821 00001021
+9D000070:  3C06A000 24C60338 24050010 0B40002A
+9D000080:  240803E8 00032080 00862021 8C840000
+9D000090:  24630001 1465FFFB 00441021 24E70001
+
+program_in_flash_data_in_ram____loop                  202022
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D000068:  03E00008 00000000 00003821 00001021
+9D000078:  3C06A000 24C60338 24050010 0B40002A
+9D000088:  240803E8 00032080 00862021 8C840000
+9D000098:  24630001 1465FFFB 00441021 24E70001
+9D0000A8:  10E80003 00000000 0B400021 00001821
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+
+program_in_ram___data_in_flash__loop                   85013
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003130:  00003021 00001021 3C079D00 24E738C8
+A0003140:  24E50040 08000C5A 240803E8 8C640000
+A0003150:  24630004 1465FFFD 00441021 24C60001
+A0003160:  10C80003 00000000 08000C53 00E01821
+A0003170:  03E00008 00000000 00A72821 8FA60020
+A0003180:  00A62821 8FA70024 00A72821 00451021
+A0003190:  24840001 240501F4 1485FFA7 8FBE0054
+A00031A0:  8FB70050 8FB6004C 8FB50048 8FB40044
+
+program_in_ram___data_in_ram____loop                  101013
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003090:  00003821 00001021 3C06A000 24C60338
+A00030A0:  24050010 08000C34 240803E8 00032080
+A00030B0:  00862021 8C840000 24630001 1465FFFB
+A00030C0:  00441021 24E70001 10E80003 00000000
+A00030D0:  08000C2B 00001821 03E00008 00000000
+A00030E0:  27BDFFE8 AFBF0014 AFB00010 40024800
+A00030F0:  0080F809 AF828024 00408021 40034800
+A0003100:  8F828024 00621023 AF828024 3C02A000
+
+program_in_flash_data_in_flash__long_sequence         150304
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+9D0000E8:  3C1E9D00 27DE38C8 00001021 00001821
+9D0000F8:  8FD70000 8FD00004 8FCF0008 8FCE000C
+9D000108:  8FCD0010 8FCC0014 8FCB0018 8FCA001C
+9D000118:  8FC90020 8FC80024 8FC70028 8FC6002C
+9D000128:  8FC50030 8FC40034 8FD10038 AFB101A8
+
+program_in_flash_data_in_ram____long_sequence         118552
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000880:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+9D000890:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+9D0008A0:  AFB101B8 AFB001B4 00001021 00002021
+9D0008B0:  3C03A000 8C780338 247E0338 8FD90004
+9D0008C0:  8FD70008 8FD6000C 8FD50010 8FD40014
+9D0008D0:  8FD30018 8FD2001C 8FD10020 8FD00024
+9D0008E0:  8FCF0028 8FCE002C 8FCD0030 8FCC0034
+9D0008F0:  8FCB0038 8FCA003C 8C690338 8FC80004
+
+program_in_ram___data_in_flash__long_sequence          82345
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0002000:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+A0002010:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+A0002020:  AFB101B8 AFB001B4 3C1E9D00 27DE38C8
+A0002030:  00001021 00001821 8FD70000 8FD00004
+A0002040:  8FCF0008 8FCE000C 8FCD0010 8FCC0014
+A0002050:  8FCB0018 8FCA001C 8FC90020 8FC80024
+A0002060:  8FC70028 8FC6002C 8FC50030 8FC40034
+A0002070:  8FD10038 AFB101A8 8FD9003C AFB90000
+
+program_in_ram___data_in_ram____long_sequence          66594
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Disable
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :          0
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+A00027C8:  03E00008 27BD01D8 27BDFE28 AFBE01D4
+A00027D8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+A00027E8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+A00027F8:  00001021 00002021 3C03A000 8C780338
+A0002808:  247E0338 8FD90004 8FD70008 8FD6000C
+A0002818:  8FD50010 8FD40014 8FD30018 8FD2001C
+A0002828:  8FD10020 8FD00024 8FCF0028 8FCE002C
+A0002838:  8FCD0030 8FCC0034 8FCB0038 8FCA003C
+
+************************************************************
+*                                                          *
+*       Enable flash prefetch                              *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                  139513
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :      16035
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000020:  00003021 00001021 3C079D00 24E738C8
+9D000030:  24E50040 0B400016 240803E8 8C640000
+9D000040:  24630004 1465FFFD 00441021 24C60001
+9D000050:  10C80003 00000000 0B40000F 00E01821
+9D000060:  03E00008 00000000 00003821 00001021
+9D000070:  3C06A000 24C60338 24050010 0B40002A
+9D000080:  240803E8 00032080 00862021 8C840000
+9D000090:  24630001 1465FFFB 00441021 24E70001
+
+program_in_flash_data_in_ram____loop                   90514
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :      16035
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D000068:  03E00008 00000000 00003821 00001021
+9D000078:  3C06A000 24C60338 24050010 0B40002A
+9D000088:  240803E8 00032080 00862021 8C840000
+9D000098:  24630001 1465FFFB 00441021 24E70001
+9D0000A8:  10E80003 00000000 0B400021 00001821
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+
+program_in_ram___data_in_flash__loop                   85013
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :         32
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003130:  00003021 00001021 3C079D00 24E738C8
+A0003140:  24E50040 08000C5A 240803E8 8C640000
+A0003150:  24630004 1465FFFD 00441021 24C60001
+A0003160:  10C80003 00000000 08000C53 00E01821
+A0003170:  03E00008 00000000 00A72821 8FA60020
+A0003180:  00A62821 8FA70024 00A72821 00451021
+A0003190:  24840001 240501F4 1485FFA7 8FBE0054
+A00031A0:  8FB70050 8FB6004C 8FB50048 8FB40044
+
+program_in_ram___data_in_ram____loop                  101013
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :         32
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003090:  00003821 00001021 3C06A000 24C60338
+A00030A0:  24050010 08000C34 240803E8 00032080
+A00030B0:  00862021 8C840000 24630001 1465FFFB
+A00030C0:  00441021 24E70001 10E80003 00000000
+A00030D0:  08000C2B 00001821 03E00008 00000000
+A00030E0:  27BDFFE8 AFBF0014 AFB00010 40024800
+A00030F0:  0080F809 AF828024 00408021 40034800
+A0003100:  8F828024 00621023 AF828024 3C02A000
+
+program_in_flash_data_in_flash__long_sequence         111281
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :      17660
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+9D0000E8:  3C1E9D00 27DE38C8 00001021 00001821
+9D0000F8:  8FD70000 8FD00004 8FCF0008 8FCE000C
+9D000108:  8FCD0010 8FCC0014 8FCB0018 8FCA001C
+9D000118:  8FC90020 8FC80024 8FC70028 8FC6002C
+9D000128:  8FC50030 8FC40034 8FD10038 AFB101A8
+
+program_in_flash_data_in_ram____long_sequence          68779
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :      14288
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000880:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+9D000890:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+9D0008A0:  AFB101B8 AFB001B4 00001021 00002021
+9D0008B0:  3C03A000 8C780338 247E0338 8FD90004
+9D0008C0:  8FD70008 8FD6000C 8FD50010 8FD40014
+9D0008D0:  8FD30018 8FD2001C 8FD10020 8FD00024
+9D0008E0:  8FCF0028 8FCE002C 8FCD0030 8FCC0034
+9D0008F0:  8FCB0038 8FCA003C 8C690338 8FC80004
+
+program_in_ram___data_in_flash__long_sequence          82346
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :         32
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0002000:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+A0002010:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+A0002020:  AFB101B8 AFB001B4 3C1E9D00 27DE38C8
+A0002030:  00001021 00001821 8FD70000 8FD00004
+A0002040:  8FCF0008 8FCE000C 8FCD0010 8FCC0014
+A0002050:  8FCB0018 8FCA001C 8FC90020 8FC80024
+A0002060:  8FC70028 8FC6002C 8FC50030 8FC40034
+A0002070:  8FD10038 AFB101A8 8FD9003C AFB90000
+
+program_in_ram___data_in_ram____long_sequence          66595
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00000000
+
+Counters
+
+    Hit            :          0
+    Miss           :          0
+    Prefetch Abort :         32
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 
+     8 
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+A00027C8:  03E00008 27BD01D8 27BDFE28 AFBE01D4
+A00027D8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+A00027E8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+A00027F8:  00001021 00002021 3C03A000 8C780338
+A0002808:  247E0338 8FD90004 8FD70008 8FD6000C
+A0002818:  8FD50010 8FD40014 8FD30018 8FD2001C
+A0002828:  8FD10020 8FD00024 8FCF0028 8FCE002C
+A0002838:  8FCD0030 8FCC0034 8FCB0038 8FCA003C
+
+************************************************************
+*                                                          *
+*       Enable flash cache                                 *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                   66515
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00D10421
+
+Counters
+
+    Hit            :      69191
+    Miss           :         17
+    Prefetch Abort :      68993
+
+Cache lines:
+
+     0 1D000020 valid        instruction mask:    0   00003021:00001021:3C079D00:24E738C8
+     1 1D000060 valid        instruction mask:    0   03E00008:00000000:00003821:00001021
+     2 
+     3 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     4 1D000030 valid        instruction mask:    0   24E50040:0B400016:240803E8:8C640000
+     5 
+     6 
+     7 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     8 1D000050 valid        instruction mask:    0   10C80003:00000000:0B40000F:00E01821
+     9 
+    10 
+    11 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    12 1D000040 valid        instruction mask:    0   24630004:1465FFFD:00441021:24C60001
+    13 
+    14 
+    15 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000020:  00003021 00001021 3C079D00 24E738C8
+9D000030:  24E50040 0B400016 240803E8 8C640000
+9D000040:  24630004 1465FFFD 00441021 24C60001
+9D000050:  10C80003 00000000 0B40000F 00E01821
+9D000060:  03E00008 00000000 00003821 00001021
+9D000070:  3C06A000 24C60338 24050010 0B40002A
+9D000080:  240803E8 00032080 00862021 8C840000
+9D000090:  24630001 1465FFFB 00441021 24E70001
+
+program_in_flash_data_in_ram____loop                   58516
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 005B888D
+
+Counters
+
+    Hit            :     117190
+    Miss           :         12
+    Prefetch Abort :         21
+
+Cache lines:
+
+     0 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     1 
+     2 1D0000B0 valid        instruction mask:    0   03E00008:00000000:27BDFE28:AFBE01D4
+     3 1D000070 valid        instruction mask:    0   3C06A000:24C60338:24050010:0B40002A
+     4 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     5 1D0000A0 valid        instruction mask:    0   10E80003:00000000:0B400021:00001821
+     6 
+     7 
+     8 
+     9 1D000080 valid        instruction mask:    0   240803E8:00032080:00862021:8C840000
+    10 
+    11 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    12 1D000090 valid        instruction mask:    0   24630001:1465FFFB:00441021:24E70001
+    13 
+    14 1D000060 valid        instruction mask:    0   03E00008:00000000:00003821:00001021
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D000068:  03E00008 00000000 00003821 00001021
+9D000078:  3C06A000 24C60338 24050010 0B40002A
+9D000088:  240803E8 00032080 00862021 8C840000
+9D000098:  24630001 1465FFFB 00441021 24E70001
+9D0000A8:  10E80003 00000000 0B400021 00001821
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+
+program_in_ram___data_in_flash__loop                   85013
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 0078D835
+
+Counters
+
+    Hit            :        169
+    Miss           :         10
+    Prefetch Abort :         14
+
+Cache lines:
+
+     0 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     1 
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     8 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+     9 
+    10 
+    11 
+    12 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003130:  00003021 00001021 3C079D00 24E738C8
+A0003140:  24E50040 08000C5A 240803E8 8C640000
+A0003150:  24630004 1465FFFD 00441021 24C60001
+A0003160:  10C80003 00000000 08000C53 00E01821
+A0003170:  03E00008 00000000 00A72821 8FA60020
+A0003180:  00A62821 8FA70024 00A72821 00451021
+A0003190:  24840001 240501F4 1485FFA7 8FBE0054
+A00031A0:  8FB70050 8FB6004C 8FB50048 8FB40044
+
+program_in_ram___data_in_ram____loop                  101013
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 01102076
+
+Counters
+
+    Hit            :     202199
+    Miss           :         12
+    Prefetch Abort :         20
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     4 
+     5 
+     6 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     7 
+     8 
+     9 
+    10 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+    11 
+    12 
+    13 1D0011B0 valid        instruction mask:    0   3C06BF88:3C04BF88:24050010:00471825
+    14 
+    15 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003090:  00003821 00001021 3C06A000 24C60338
+A00030A0:  24050010 08000C34 240803E8 00032080
+A00030B0:  00862021 8C840000 24630001 1465FFFB
+A00030C0:  00441021 24E70001 10E80003 00000000
+A00030D0:  08000C2B 00001821 03E00008 00000000
+A00030E0:  27BDFFE8 AFBF0014 AFB00010 40024800
+A00030F0:  0080F809 AF828024 00408021 40034800
+A0003100:  8F828024 00621023 AF828024 3C02A000
+
+program_in_flash_data_in_flash__long_sequence          96529
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 003B8514
+
+Counters
+
+    Hit            :      58704
+    Miss           :      14890
+    Prefetch Abort :      12759
+
+Cache lines:
+
+     0 1D0007C0 valid        instruction mask:    0   00992021:8FA50168:00852021:8FB1016C
+     1 1D000780 valid        instruction mask:    0   02F1B821:8FB90148:02F9B821:8FA4014C
+     2 1D000840 valid        instruction mask:    0   00852021:24630001:2411007D:1471FE28
+     3 1D000800 valid        instruction mask:    0   00912021:8FB90188:00992021:8FA5018C
+     4 1D000850 valid        instruction mask:    0   00441021:8FBE01D4:8FB701D0:8FB601CC
+     5 1D000790 valid        instruction mask:    0   02E4B821:8FA50150:02E5B821:8FB10154
+     6 1D0007D0 valid        instruction mask:    0   00912021:8FB90170:00992021:8FA50174
+     7 1D000810 valid        instruction mask:    0   00852021:8FB10190:00912021:8FB90194
+     8 1D0007A0 valid        instruction mask:    0   02F1B821:8FB90158:02F92021:8FA5015C
+     9 1D000820 valid        instruction mask:    0   00992021:8FA50198:00852021:8FB1019C
+    10 1D000870 valid        instruction mask:    0   8FB101B8:8FB001B4:03E00008:27BD01D8
+    11 1D0007E0 valid        instruction mask:    0   00852021:8FB10178:00912021:8FB9017C
+    12 1D000770 valid        instruction mask:    0   02E4B821:8FA50140:02E5B821:8FB10144
+    13 1D000830 valid        instruction mask:    0   00912021:8FB901A0:00992021:8FA501A4
+    14 1D0007F0 valid        instruction mask:    0   00992021:8FA50180:00852021:8FB10184
+    15 1D0007B0 valid        instruction mask:    0   00852021:8FB10160:00912021:8FB90164
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+9D0000E8:  3C1E9D00 27DE38C8 00001021 00001821
+9D0000F8:  8FD70000 8FD00004 8FCF0008 8FCE000C
+9D000108:  8FCD0010 8FCC0014 8FCB0018 8FCA001C
+9D000118:  8FC90020 8FC80024 8FC70028 8FC6002C
+9D000128:  8FC50030 8FC40034 8FD10038 AFB101A8
+
+program_in_flash_data_in_ram____long_sequence          68590
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 0119AA08
+
+Counters
+
+    Hit            :      79578
+    Miss           :      14892
+    Prefetch Abort :      14263
+
+Cache lines:
+
+     0 1D000FC0 valid        instruction mask:    0   8FA60184:00A62821:8FA60188:00A62821
+     1 1D001040 valid        instruction mask:    0   03E00008:27BD01D8:27BDFFD0:AFBF002C
+     2 1D001000 valid        instruction mask:    0   8FA601A4:00A62821:00BEF021:24840001
+     3 1D000F80 valid        instruction mask:    0   8FA60164:00A62821:8FA60168:00A62821
+     4 1D000FE0 valid        instruction mask:    0   8FA60194:00A62821:8FA60198:00A62821
+     5 1D000F60 valid        instruction mask:    0   8FA60154:0306C021:8FA50158:0305C021
+     6 1D000FA0 valid        instruction mask:    0   8FA60174:00A62821:8FA60178:00A62821
+     7 1D001020 valid        instruction mask:    0   8FB701D0:8FB601CC:8FB501C8:8FB401C4
+     8 1D000F50 valid        instruction mask:    0   8FA6014C:0306C021:8FA50150:0305C021
+     9 1D000FD0 valid        instruction mask:    0   8FA6018C:00A62821:8FA60190:00A62821
+    10 1D000F90 valid        instruction mask:    0   8FA6016C:00A62821:8FA60170:00A62821
+    11 1D001010 valid        instruction mask:    0   2405007D:1485FE27:005E1021:8FBE01D4
+    12 1D000F70 valid        instruction mask:    0   8FA6015C:03062821:8FA60160:00A62821
+    13 1D000FF0 valid        instruction mask:    0   8FA6019C:00A62821:8FA601A0:00A62821
+    14 1D001030 valid        instruction mask:    0   8FB301C0:8FB201BC:8FB101B8:8FB001B4
+    15 1D000FB0 valid        instruction mask:    0   8FA6017C:00A62821:8FA60180:00A62821
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000880:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+9D000890:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+9D0008A0:  AFB101B8 AFB001B4 00001021 00002021
+9D0008B0:  3C03A000 8C780338 247E0338 8FD90004
+9D0008C0:  8FD70008 8FD6000C 8FD50010 8FD40014
+9D0008D0:  8FD30018 8FD2001C 8FD10020 8FD00024
+9D0008E0:  8FCF0028 8FCE002C 8FCD0030 8FCC0034
+9D0008F0:  8FCB0038 8FCA003C 8C690338 8FC80004
+
+program_in_ram___data_in_flash__long_sequence          82346
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 007BD020
+
+Counters
+
+    Hit            :        181
+    Miss           :         11
+    Prefetch Abort :         19
+
+Cache lines:
+
+     0 
+     1 
+     2 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     3 
+     4 
+     5 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     6 
+     7 1D001190 valid        instruction mask:    0   3C02BF88:AC404090:3C02BF88:AC4040A0
+     8 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+     9 
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0002000:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+A0002010:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+A0002020:  AFB101B8 AFB001B4 3C1E9D00 27DE38C8
+A0002030:  00001021 00001821 8FD70000 8FD00004
+A0002040:  8FCF0008 8FCE000C 8FCD0010 8FCC0014
+A0002050:  8FCB0018 8FCA001C 8FC90020 8FC80024
+A0002060:  8FC70028 8FC6002C 8FC50030 8FC40034
+A0002070:  8FD10038 AFB101A8 8FD9003C AFB90000
+
+program_in_ram___data_in_ram____long_sequence          66595
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Disable
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00F6C52E
+
+Counters
+
+    Hit            :     133364
+    Miss           :          9
+    Prefetch Abort :         13
+
+Cache lines:
+
+     0 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     1 
+     2 
+     3 
+     4 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+     5 
+     6 
+     7 
+     8 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     9 
+    10 
+    11 
+    12 
+    13 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+A00027C8:  03E00008 27BD01D8 27BDFE28 AFBE01D4
+A00027D8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+A00027E8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+A00027F8:  00001021 00002021 3C03A000 8C780338
+A0002808:  247E0338 8FD90004 8FD70008 8FD6000C
+A0002818:  8FD50010 8FD40014 8FD30018 8FD2001C
+A0002828:  8FD10020 8FD00024 8FCF0028 8FCE002C
+A0002838:  8FCD0030 8FCC0034 8FCB0038 8FCA003C
+
+************************************************************
+*                                                          *
+*       Enable flash data caching                          *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                   50015
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00318C40
+
+Counters
+
+    Hit            :      80190
+    Miss           :       5015
+    Prefetch Abort :      75018
+
+Cache lines:
+
+     0 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     1 1D000020 valid        instruction mask:    0   00003021:00001021:3C079D00:24E738C8
+     2 1D000040 valid        instruction mask:    0   24630004:1465FFFD:00441021:24C60001
+     3 
+     4 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     5 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     6 1D000050 valid        instruction mask:    0   10C80003:00000000:0B40000F:00E01821
+     7 
+     8 1D000030 valid        instruction mask:    0   24E50040:0B400016:240803E8:8C640000
+     9 1D000060 valid        instruction mask:    0   03E00008:00000000:00003821:00001021
+    10 
+    11 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    12 1D0038D0 valid        data        mask:    0   00000002:00000003:00000004:00000005
+    13 1D0038E0 valid        data        mask:    0   00000006:00000007:00000008:00000009
+    14 1D0038F0 valid        data        mask:    0   0000000A:0000000B:0000000C:0000000D
+    15 1D003900 valid        data        mask:    0   0000000E:0000000F:27BDFFA8:AFB60048
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000020:  00003021 00001021 3C079D00 24E738C8
+9D000030:  24E50040 0B400016 240803E8 8C640000
+9D000040:  24630004 1465FFFD 00441021 24C60001
+9D000050:  10C80003 00000000 0B40000F 00E01821
+9D000060:  03E00008 00000000 00003821 00001021
+9D000070:  3C06A000 24C60338 24050010 0B40002A
+9D000080:  240803E8 00032080 00862021 8C840000
+9D000090:  24630001 1465FFFB 00441021 24E70001
+
+program_in_flash_data_in_ram____loop                   58516
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 01100172
+
+Counters
+
+    Hit            :     117189
+    Miss           :         14
+    Prefetch Abort :         27
+
+Cache lines:
+
+     0 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     1 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     2 1D000080 valid        instruction mask:    0   240803E8:00032080:00862021:8C840000
+     3 1D0000B0 valid        instruction mask:    0   03E00008:00000000:27BDFE28:AFBE01D4
+     4 
+     5 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     6 1D000060 valid        instruction mask:    0   03E00008:00000000:00003821:00001021
+     7 1D0000A0 valid        instruction mask:    0   10E80003:00000000:0B400021:00001821
+     8 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+     9 1D000090 valid        instruction mask:    0   24630001:1465FFFB:00441021:24E70001
+    10 
+    11 1D000070 valid        instruction mask:    0   3C06A000:24C60338:24050010:0B40002A
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D000068:  03E00008 00000000 00003821 00001021
+9D000078:  3C06A000 24C60338 24050010 0B40002A
+9D000088:  240803E8 00032080 00862021 8C840000
+9D000098:  24630001 1465FFFB 00441021 24E70001
+9D0000A8:  10E80003 00000000 0B400021 00001821
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+
+program_in_ram___data_in_flash__loop                   74013
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 01603DC1
+
+Counters
+
+    Hit            :     128202
+    Miss           :       5009
+    Prefetch Abort :         13
+
+Cache lines:
+
+     0 
+     1 
+     2 
+     3 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     4 
+     5 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     6 
+     7 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     8 
+     9 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    10 
+    11 
+    12 1D003900 valid        data        mask:    0   0000000E:0000000F:27BDFFA8:AFB60048
+    13 1D0038D0 valid        data        mask:    0   00000002:00000003:00000004:00000005
+    14 1D0038E0 valid        data        mask:    0   00000006:00000007:00000008:00000009
+    15 1D0038F0 valid        data        mask:    0   0000000A:0000000B:0000000C:0000000D
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003130:  00003021 00001021 3C079D00 24E738C8
+A0003140:  24E50040 08000C5A 240803E8 8C640000
+A0003150:  24630004 1465FFFD 00441021 24C60001
+A0003160:  10C80003 00000000 08000C53 00E01821
+A0003170:  03E00008 00000000 00A72821 8FA60020
+A0003180:  00A62821 8FA70024 00A72821 00451021
+A0003190:  24840001 240501F4 1485FFA7 8FBE0054
+A00031A0:  8FB70050 8FB6004C 8FB50048 8FB40044
+
+program_in_ram___data_in_ram____loop                  101013
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00DAC0E2
+
+Counters
+
+    Hit            :     202202
+    Miss           :         12
+    Prefetch Abort :         12
+
+Cache lines:
+
+     0 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     1 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     2 
+     3 
+     4 
+     5 
+     6 
+     7 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     8 
+     9 1D0011A0 valid        instruction mask:    0   3C02BF88:AC4040C0:00001021:3C078000
+    10 
+    11 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003090:  00003821 00001021 3C06A000 24C60338
+A00030A0:  24050010 08000C34 240803E8 00032080
+A00030B0:  00862021 8C840000 24630001 1465FFFB
+A00030C0:  00441021 24E70001 10E80003 00000000
+A00030D0:  08000C2B 00001821 03E00008 00000000
+A00030E0:  27BDFFE8 AFBF0014 AFB00010 40024800
+A00030F0:  0080F809 AF828024 00408021 40034800
+A0003100:  8F828024 00621023 AF828024 3C02A000
+
+program_in_flash_data_in_flash__long_sequence          78279
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 004BAEE7
+
+Counters
+
+    Hit            :      79580
+    Miss           :      19888
+    Prefetch Abort :       9016
+
+Cache lines:
+
+     0 1D0007E0 valid        instruction mask:    0   00852021:8FB10178:00912021:8FB9017C
+     1 1D0007B0 valid        instruction mask:    0   00852021:8FB10160:00912021:8FB90164
+     2 1D000840 valid        instruction mask:    0   00852021:24630001:2411007D:1471FE28
+     3 1D000810 valid        instruction mask:    0   00852021:8FB10190:00912021:8FB90194
+     4 1D000800 valid        instruction mask:    0   00912021:8FB90188:00992021:8FA5018C
+     5 1D000870 valid        instruction mask:    0   8FB101B8:8FB001B4:03E00008:27BD01D8
+     6 1D0007D0 valid        instruction mask:    0   00912021:8FB90170:00992021:8FA50174
+     7 1D000830 valid        instruction mask:    0   00912021:8FB901A0:00992021:8FA501A4
+     8 1D0007F0 valid        instruction mask:    0   00992021:8FA50180:00852021:8FB10184
+     9 1D0007C0 valid        instruction mask:    0   00992021:8FA50168:00852021:8FB1016C
+    10 1D000850 valid        instruction mask:    0   00441021:8FBE01D4:8FB701D0:8FB601CC
+    11 1D000820 valid        instruction mask:    0   00992021:8FA50198:00852021:8FB1019C
+    12 1D0038E0 valid        data        mask:    0   00000006:00000007:00000008:00000009
+    13 1D0038D0 valid        data        mask:    0   00000002:00000003:00000004:00000005
+    14 1D0038F0 valid        data        mask:    0   0000000A:0000000B:0000000C:0000000D
+    15 1D003900 valid        data        mask:    0   0000000E:0000000F:27BDFFA8:AFB60048
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+9D0000E8:  3C1E9D00 27DE38C8 00001021 00001821
+9D0000F8:  8FD70000 8FD00004 8FCF0008 8FCE000C
+9D000108:  8FCD0010 8FCC0014 8FCB0018 8FCA001C
+9D000118:  8FC90020 8FC80024 8FC70028 8FC6002C
+9D000128:  8FC50030 8FC40034 8FD10038 AFB101A8
+
+program_in_flash_data_in_ram____long_sequence          68590
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 017A1142
+
+Counters
+
+    Hit            :      79576
+    Miss           :      14891
+    Prefetch Abort :      14270
+
+Cache lines:
+
+     0 1D000FA0 valid        instruction mask:    0   8FA60174:00A62821:8FA60178:00A62821
+     1 1D001030 valid        instruction mask:    0   8FB301C0:8FB201BC:8FB101B8:8FB001B4
+     2 1D001000 valid        instruction mask:    0   8FA601A4:00A62821:00BEF021:24840001
+     3 1D000FD0 valid        instruction mask:    0   8FA6018C:00A62821:8FA60190:00A62821
+     4 1D000F90 valid        instruction mask:    0   8FA6016C:00A62821:8FA60170:00A62821
+     5 1D001020 valid        instruction mask:    0   8FB701D0:8FB601CC:8FB501C8:8FB401C4
+     6 1D000FC0 valid        instruction mask:    0   8FA60184:00A62821:8FA60188:00A62821
+     7 1D000FF0 valid        instruction mask:    0   8FA6019C:00A62821:8FA601A0:00A62821
+     8 1D001010 valid        instruction mask:    0   2405007D:1485FE27:005E1021:8FBE01D4
+     9 1D000FB0 valid        instruction mask:    0   8FA6017C:00A62821:8FA60180:00A62821
+    10 1D000FE0 valid        instruction mask:    0   8FA60194:00A62821:8FA60198:00A62821
+    11 1D001040 valid        instruction mask:    0   03E00008:27BD01D8:27BDFFD0:AFBF002C
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000880:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+9D000890:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+9D0008A0:  AFB101B8 AFB001B4 00001021 00002021
+9D0008B0:  3C03A000 8C780338 247E0338 8FD90004
+9D0008C0:  8FD70008 8FD6000C 8FD50010 8FD40014
+9D0008D0:  8FD30018 8FD2001C 8FD10020 8FD00024
+9D0008E0:  8FCF0028 8FCE002C 8FCD0030 8FCC0034
+9D0008F0:  8FCB0038 8FCA003C 8C690338 8FC80004
+
+program_in_ram___data_in_flash__long_sequence          69033
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00023545
+
+Counters
+
+    Hit            :     118241
+    Miss           :       5010
+    Prefetch Abort :         18
+
+Cache lines:
+
+     0 
+     1 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     2 
+     3 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     4 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     5 
+     6 
+     7 
+     8 
+     9 1D001180 valid        instruction mask:    0   AFB10018:AFB00014:00808021:00A08821
+    10 
+    11 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    12 1D003900 valid        data        mask:    0   0000000E:0000000F:27BDFFA8:AFB60048
+    13 1D0038F0 valid        data        mask:    0   0000000A:0000000B:0000000C:0000000D
+    14 1D0038D0 valid        data        mask:    0   00000002:00000003:00000004:00000005
+    15 1D0038E0 valid        data        mask:    0   00000006:00000007:00000008:00000009
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0002000:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+A0002010:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+A0002020:  AFB101B8 AFB001B4 3C1E9D00 27DE38C8
+A0002030:  00001021 00001821 8FD70000 8FD00004
+A0002040:  8FCF0008 8FCE000C 8FCD0010 8FCC0014
+A0002050:  8FCB0018 8FCA001C 8FC90020 8FC80024
+A0002060:  8FC70028 8FC6002C 8FC50030 8FC40034
+A0002070:  8FD10038 AFB101A8 8FD9003C AFB90000
+
+program_in_ram___data_in_ram____long_sequence          66595
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00440A11
+
+Counters
+
+    Hit            :     133365
+    Miss           :         10
+    Prefetch Abort :         14
+
+Cache lines:
+
+     0 
+     1 
+     2 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     3 
+     4 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     5 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     6 
+     7 
+     8 1D001180 valid        instruction mask:    0   AFB10018:AFB00014:00808021:00A08821
+     9 
+    10 
+    11 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+A00027C8:  03E00008 27BD01D8 27BDFE28 AFBE01D4
+A00027D8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+A00027E8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+A00027F8:  00001021 00002021 3C03A000 8C780338
+A0002808:  247E0338 8FD90004 8FD70008 8FD6000C
+A0002818:  8FD50010 8FD40014 8FD30018 8FD2001C
+A0002828:  8FD10020 8FD00024 8FCF0028 8FCE002C
+A0002838:  8FCD0030 8FCC0034 8FCB0038 8FCA003C
+
+************************************************************
+*                                                          *
+*       Set zero state data RAM access                     *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                   50012
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00911E75
+
+Counters
+
+    Hit            :      80174
+    Miss           :       5015
+    Prefetch Abort :      75015
+
+Cache lines:
+
+     0 1D000030 valid        instruction mask:    0   24E50040:0B400016:240803E8:8C640000
+     1 1D000060 valid        instruction mask:    0   03E00008:00000000:00003821:00001021
+     2 
+     3 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+     4 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     5 
+     6 1D000020 valid        instruction mask:    0   00003021:00001021:3C079D00:24E738C8
+     7 1D000040 valid        instruction mask:    0   24630004:1465FFFD:00441021:24C60001
+     8 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     9 1D000050 valid        instruction mask:    0   10C80003:00000000:0B40000F:00E01821
+    10 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+    11 
+    12 1D003900 valid        data        mask:    0   0000000E:0000000F:27BDFFA8:AFB60048
+    13 1D0038F0 valid        data        mask:    0   0000000A:0000000B:0000000C:0000000D
+    14 1D0038E0 valid        data        mask:    0   00000006:00000007:00000008:00000009
+    15 1D0038D0 valid        data        mask:    0   00000002:00000003:00000004:00000005
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000020:  00003021 00001021 3C079D00 24E738C8
+9D000030:  24E50040 0B400016 240803E8 8C640000
+9D000040:  24630004 1465FFFD 00441021 24C60001
+9D000050:  10C80003 00000000 0B40000F 00E01821
+9D000060:  03E00008 00000000 00003821 00001021
+9D000070:  3C06A000 24C60338 24050010 0B40002A
+9D000080:  240803E8 00032080 00862021 8C840000
+9D000090:  24630001 1465FFFB 00441021 24E70001
+
+program_in_flash_data_in_ram____loop                   50514
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 01100E2C
+
+Counters
+
+    Hit            :     101174
+    Miss           :         14
+    Prefetch Abort :     101017
+
+Cache lines:
+
+     0 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     1 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     2 1D000080 valid        instruction mask:    0   240803E8:00032080:00862021:8C840000
+     3 1D0000B0 valid        instruction mask:    0   03E00008:00000000:27BDFE28:AFBE01D4
+     4 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     5 1D000060 valid        instruction mask:    0   03E00008:00000000:00003821:00001021
+     6 1D0000A0 valid        instruction mask:    0   10E80003:00000000:0B400021:00001821
+     7 
+     8 1D000090 valid        instruction mask:    0   24630001:1465FFFB:00441021:24E70001
+     9 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    10 
+    11 1D000070 valid        instruction mask:    0   3C06A000:24C60338:24050010:0B40002A
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D000068:  03E00008 00000000 00003821 00001021
+9D000078:  3C06A000 24C60338 24050010 0B40002A
+9D000088:  240803E8 00032080 00862021 8C840000
+9D000098:  24630001 1465FFFB 00441021 24E70001
+9D0000A8:  10E80003 00000000 0B400021 00001821
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+
+program_in_ram___data_in_flash__loop                   42007
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 0079C9E0
+
+Counters
+
+    Hit            :      64179
+    Miss           :       5007
+    Prefetch Abort :         13
+
+Cache lines:
+
+     0 
+     1 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     2 
+     3 
+     4 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     5 
+     6 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     7 
+     8 
+     9 
+    10 
+    11 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    12 1D0038D0 valid        data        mask:    0   00000002:00000003:00000004:00000005
+    13 1D0038E0 valid        data        mask:    0   00000006:00000007:00000008:00000009
+    14 1D0038F0 valid        data        mask:    0   0000000A:0000000B:0000000C:0000000D
+    15 1D003900 valid        data        mask:    0   0000000E:0000000F:27BDFFA8:AFB60048
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003130:  00003021 00001021 3C079D00 24E738C8
+A0003140:  24E50040 08000C5A 240803E8 8C640000
+A0003150:  24630004 1465FFFD 00441021 24C60001
+A0003160:  10C80003 00000000 08000C53 00E01821
+A0003170:  03E00008 00000000 00A72821 8FA60020
+A0003180:  00A62821 8FA70024 00A72821 00451021
+A0003190:  24840001 240501F4 1485FFA7 8FBE0054
+A00031A0:  8FB70050 8FB6004C 8FB50048 8FB40044
+
+program_in_ram___data_in_ram____loop                   58507
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 0145C172
+
+Counters
+
+    Hit            :     117177
+    Miss           :          8
+    Prefetch Abort :         18
+
+Cache lines:
+
+     0 
+     1 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     2 
+     3 
+     4 
+     5 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     6 
+     7 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     8 
+     9 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    10 
+    11 
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0003090:  00003821 00001021 3C06A000 24C60338
+A00030A0:  24050010 08000C34 240803E8 00032080
+A00030B0:  00862021 8C840000 24630001 1465FFFB
+A00030C0:  00441021 24E70001 10E80003 00000000
+A00030D0:  08000C2B 00001821 03E00008 00000000
+A00030E0:  27BDFFE8 AFBF0014 AFB00010 40024800
+A00030F0:  0080F809 AF828024 00408021 40034800
+A0003100:  8F828024 00621023 AF828024 3C02A000
+
+program_in_flash_data_in_flash__long_sequence          73078
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 0156D481
+
+Counters
+
+    Hit            :      68441
+    Miss           :      19889
+    Prefetch Abort :      13635
+
+Cache lines:
+
+     0 1D000870 valid        instruction mask:    0   8FB101B8:8FB001B4:03E00008:27BD01D8
+     1 1D0007E0 valid        instruction mask:    0   00852021:8FB10178:00912021:8FB9017C
+     2 1D000840 valid        instruction mask:    0   00852021:24630001:2411007D:1471FE28
+     3 1D000810 valid        instruction mask:    0   00852021:8FB10190:00912021:8FB90194
+     4 1D000860 valid        instruction mask:    0   8FB501C8:8FB401C4:8FB301C0:8FB201BC
+     5 1D000830 valid        instruction mask:    0   00912021:8FB901A0:00992021:8FA501A4
+     6 1D000800 valid        instruction mask:    0   00912021:8FB90188:00992021:8FA5018C
+     7 1D0007D0 valid        instruction mask:    0   00912021:8FB90170:00992021:8FA50174
+     8 1D0007C0 valid        instruction mask:    0   00992021:8FA50168:00852021:8FB1016C
+     9 1D000850 valid        instruction mask:    0   00441021:8FBE01D4:8FB701D0:8FB601CC
+    10 1D0007F0 valid        instruction mask:    0   00992021:8FA50180:00852021:8FB10184
+    11 1D000820 valid        instruction mask:    0   00992021:8FA50198:00852021:8FB1019C
+    12 1D003900 valid        data        mask:    0   0000000E:0000000F:27BDFFA8:AFB60048
+    13 1D0038D0 valid        data        mask:    0   00000002:00000003:00000004:00000005
+    14 1D0038E0 valid        data        mask:    0   00000006:00000007:00000008:00000009
+    15 1D0038F0 valid        data        mask:    0   0000000A:0000000B:0000000C:0000000D
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+9D0000B8:  03E00008 00000000 27BDFE28 AFBE01D4
+9D0000C8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+9D0000D8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+9D0000E8:  3C1E9D00 27DE38C8 00001021 00001821
+9D0000F8:  8FD70000 8FD00004 8FCF0008 8FCE000C
+9D000108:  8FCD0010 8FCC0014 8FCB0018 8FCA001C
+9D000118:  8FC90020 8FC80024 8FC70028 8FC6002C
+9D000128:  8FC50030 8FC40034 8FD10038 AFB101A8
+
+program_in_flash_data_in_ram____long_sequence          56764
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 0046A007
+
+Counters
+
+    Hit            :      58805
+    Miss           :      14890
+    Prefetch Abort :      13510
+
+Cache lines:
+
+     0 1D001020 valid        instruction mask:    0   8FB701D0:8FB601CC:8FB501C8:8FB401C4
+     1 1D000F90 valid        instruction mask:    0   8FA6016C:00A62821:8FA60170:00A62821
+     2 1D000FF0 valid        instruction mask:    0   8FA6019C:00A62821:8FA601A0:00A62821
+     3 1D000FC0 valid        instruction mask:    0   8FA60184:00A62821:8FA60188:00A62821
+     4 1D000FB0 valid        instruction mask:    0   8FA6017C:00A62821:8FA60180:00A62821
+     5 1D001010 valid        instruction mask:    0   2405007D:1485FE27:005E1021:8FBE01D4
+     6 1D001040 valid        instruction mask:    0   03E00008:27BD01D8:27BDFFD0:AFBF002C
+     7 1D000FE0 valid        instruction mask:    0   8FA60194:00A62821:8FA60198:00A62821
+     8 1D000FA0 valid        instruction mask:    0   8FA60174:00A62821:8FA60178:00A62821
+     9 1D000FD0 valid        instruction mask:    0   8FA6018C:00A62821:8FA60190:00A62821
+    10 1D001000 valid        instruction mask:    0   8FA601A4:00A62821:00BEF021:24840001
+    11 1D001030 valid        instruction mask:    0   8FB301C0:8FB201BC:8FB101B8:8FB001B4
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+9D000880:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+9D000890:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+9D0008A0:  AFB101B8 AFB001B4 00001021 00002021
+9D0008B0:  3C03A000 8C780338 247E0338 8FD90004
+9D0008C0:  8FD70008 8FD6000C 8FD50010 8FD40014
+9D0008D0:  8FD30018 8FD2001C 8FD10020 8FD00024
+9D0008E0:  8FCF0028 8FCE002C 8FCD0030 8FCC0034
+9D0008F0:  8FCB0038 8FCA003C 8C690338 8FC80004
+
+program_in_ram___data_in_flash__long_sequence          50961
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 0070C577
+
+Counters
+
+    Hit            :      82089
+    Miss           :       5007
+    Prefetch Abort :         13
+
+Cache lines:
+
+     0 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     1 
+     2 
+     3 
+     4 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     5 
+     6 
+     7 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     8 
+     9 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    10 
+    11 
+    12 1D0038E0 valid        data        mask:    0   00000006:00000007:00000008:00000009
+    13 1D0038D0 valid        data        mask:    0   00000002:00000003:00000004:00000005
+    14 1D003900 valid        data        mask:    0   0000000E:0000000F:27BDFFA8:AFB60048
+    15 1D0038F0 valid        data        mask:    0   0000000A:0000000B:0000000C:0000000D
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+A0002000:  27BDFE28 AFBE01D4 AFB701D0 AFB601CC
+A0002010:  AFB501C8 AFB401C4 AFB301C0 AFB201BC
+A0002020:  AFB101B8 AFB001B4 3C1E9D00 27DE38C8
+A0002030:  00001021 00001821 8FD70000 8FD00004
+A0002040:  8FCF0008 8FCE000C 8FCD0010 8FCC0014
+A0002050:  8FCB0018 8FCA001C 8FC90020 8FC80024
+A0002060:  8FC70028 8FC6002C 8FC50030 8FC40034
+A0002070:  8FD10038 AFB101A8 8FD9003C AFB90000
+
+program_in_ram___data_in_ram____long_sequence          51023
+*********  prefetch cache report  *********
+
+Cache Coherency setting on a PFM Program Cycle bit:
+    Invalidate all data lines and instruction lines that are not locked
+
+Data Cache Size: Enable, 4 lines
+
+Predictive Prefetch Cache:
+    Enable for both cacheable and non-cacheable regions
+
+PFM Access Time: 3 SYSCLK wait states
+
+LRU: 00D3168A
+
+Counters
+
+    Hit            :     102214
+    Miss           :          8
+    Prefetch Abort :         14
+
+Cache lines:
+
+     0 1D0011C0 valid        instruction mask:    0   ACC34010:8C834020:7C0318C4:AC834020
+     1 
+     2 1D0011F0 valid        instruction mask:    0   0040F809:02002021:3C030001:3463D4C0
+     3 
+     4 1D0011D0 valid        instruction mask:    0   24420001:1445FFFA:00471825:00001021
+     5 
+     6 
+     7 
+     8 
+     9 1D0011E0 valid        instruction mask:    0   40824800:000000C0:3C02A000:244230E0
+    10 
+    11 1D0011A0 valid        instruction mask:    0   3C02BF88:AC4040C0:00001021:3C078000
+    12 
+    13 
+    14 
+    15 
+
+******  End of prefetch cache report  *****
+
+
+Function dump:
+
+                             ******** ********
+A00027C8:  03E00008 27BD01D8 27BDFE28 AFBE01D4
+A00027D8:  AFB701D0 AFB601CC AFB501C8 AFB401C4
+A00027E8:  AFB301C0 AFB201BC AFB101B8 AFB001B4
+A00027F8:  00001021 00002021 3C03A000 8C780338
+A0002808:  247E0338 8FD90004 8FD70008 8FD6000C
+A0002818:  8FD50010 8FD40014 8FD30018 8FD2001C
+A0002828:  8FD10020 8FD00024 8FCF0028 8FCE002C
+A0002838:  8FCD0030 8FCC0034 8FCB0038 8FCA003C
+
+************************************************************
+*                                                          *
+*       Dump test result table                             *
+*                                                          *
+************************************************************
+
+	Program Flash, Data Flash, Loop	Program Flash, Data RAM, Loop	Program RAM, Data Flash, Loop	Program RAM, Data RAM, Loop	Program Flash, Data Flash, Sequence	Program Flash, Data RAM, Sequence	Program RAM, Data Flash, Sequence	Program RAM, Data RAM, Sequence
+                    	 PF DF L 	 PF DR L 	 PR DF L 	 PR DR L 	 PF DF S 	 PF DR S 	 PR DF S 	 PR DR S 
+Default              	  340040	  404040	  117013	  101013	  300604	  237100	  114345	   66594
+Min flash wait states	  170022	  202022	   85013	  101013	  150304	  118552	   82345	   66594
+Flash prefetch       	  139513	   90514	   85013	  101013	  111281	   68779	   82346	   66595
+Flash program cache  	   66515	   58516	   85013	  101013	   96529	   68590	   82346	   66595
+Flash data cache     	   50015	   58516	   74013	  101013	   78279	   68590	   69033	   66595
+Zero wait state RAM  	   50012	   50514	   42007	   58507	   73078	   56764	   50961	   51023
+
+************************************************************
+************************************************************
+************************************************************

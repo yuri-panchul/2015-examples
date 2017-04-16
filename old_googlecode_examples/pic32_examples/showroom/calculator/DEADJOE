@@ -1,0 +1,46 @@
+
+*** These modified files were found in JOE when it aborted on Fri Mar 24 19:27:00 2017
+*** JOE was aborted by UNIX signal 15
+
+*** File '(Unnamed)'
+\n#set
+program
+cp /opt/microchip/
+ .\n
+    SPI1CON.
+    SPI1STAT.
+    SPI1CON2.
+    IFS1.
+    IEC1.
+bits.
+
+*** File '(Unnamed)'
+./
+\n
+USER
+peripheral
+div
+spi
+SPI
+    unsigned 
+.
+SPI
+
+*** File '(Unnamed)'
+* Startup Log *
+* Shell 2 *
+../spi.c
+/home/training/github/kiev_2017/microchip/aaa/spi.c
+/home/training/github/kiev_2017/microchip/main.c
+aaa/spi.c
+/home/training/github/kiev_2017/microchip/main.c
+/home/training/googlecode/pic32-examples/tedious/001_blinking_led.X/main.c
+/home/training/googlecode/pic32-examples/tedious/002_difference_in_blinking_speed.X/main.c
+/home/training/googlecode/pic32-examples/tedious/005_buttons_and_switches.X/main.c
+/home/training/googlecode/pic32-examples/showroom/calculator/spi.c
+
+*** File '* Startup Log *'
+Processing '/home/training/.joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /home/training/.joerc

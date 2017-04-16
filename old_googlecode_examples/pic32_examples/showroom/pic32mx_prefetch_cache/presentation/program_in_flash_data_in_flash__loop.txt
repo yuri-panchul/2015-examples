@@ -1,0 +1,32 @@
+39:                  int program_in_flash_data_in_flash__loop (void)
+9D000030  24E50040   ADDIU A1, A3, 64
+40:                  {
+41:                      const volatile int * a = array_in_flash;
+42:                  
+43:                      int i, k, n = 0;
+9D000024  00001021   ADDU V0, ZERO, ZERO
+44:                  
+45:                      for (k = 0; k < times_to_repeat; k ++)
+9D000020  00003021   ADDU A2, ZERO, ZERO
+9D000028  3C079D00   LUI A3, -25344
+9D00002C  24E73884   ADDIU A3, A3, 14468
+9D000034  0B400016   J 0x9D000058
+9D000038  240803E8   ADDIU T0, ZERO, 1000
+9D00004C  24C60001   ADDIU A2, A2, 1
+9D000050  10C80003   BEQ A2, T0, 0x9D000060
+9D000054  00000000   NOP
+9D000058  0B40000F   J 0x9D00003C
+9D00005C  00E01821   ADDU V1, A3, ZERO
+46:                      {
+47:                          for (i = 0; i < n_array_elements; i ++)
+9D000044  1465FFFD   BNE V1, A1, 0x9D00003C
+9D000048  00441021   ADDU V0, V0, A0
+48:                              n += a [i];
+9D00003C  8C640000   LW A0, 0(V1)
+9D000040  24630004   ADDIU V1, V1, 4
+49:                      }
+50:                  
+51:                      return n;
+52:                  }
+9D000060  03E00008   JR RA
+9D000064  00000000   NOP

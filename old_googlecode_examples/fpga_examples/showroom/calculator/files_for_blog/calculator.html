@@ -1,0 +1,845 @@
+<html>
+<body>
+<h1>Example: Stack-Based Calculator</h1>
+<p>by Yuri Panchul</p>
+
+<p><img src="http://panchul.com/misc/boards_for_education/BASYS2-top-400.jpg"></p>
+
+<p><pre>
+//-------------------------------------------------------------------------//
+//
+//  calculator.v
+//
+//-------------------------------------------------------------------------//
+
+module calculator
+(
+    input         clock,
+    input         reset,
+    input         enter,
+    input         add,
+    input         multiply,
+    input  [ 7:0] data,
+    output [15:0] result,
+    output        overflow,
+    output [ 3:0] error
+);
+
+    assign error = 0;
+
+    reg  [15:0] alu_a;
+    reg  [15:0] alu_b;
+    reg         alu_multiply;
+    wire [15:0] alu_result;
+    wire        alu_overflow;
+
+    alu alu
+    (
+        .a          ( alu_a        ),
+        .b          ( alu_b        ),
+        .multiply   ( alu_multiply ),
+        .result     ( alu_result   ),
+        .overflow   ( alu_overflow )
+    );
+
+    reg r_overflow;
+    assign overflow = r_overflow;
+
+    always @(posedge clock)
+    begin
+        if (reset)
+            r_overflow &lt;= 0;
+        else
+            r_overflow &lt;= alu_overflow;
+    end
+
+    reg         stack_push;
+    reg         stack_pop;
+    reg  [15:0] stack_write_data;
+    wire [15:0] stack_read_data;
+
+    stack stack
+    (
+        .clock      ( clock            ),
+        .reset      ( reset            ),
+        .push       ( stack_push       ),
+        .pop        ( stack_pop        ),
+        .write_data ( stack_write_data ),
+        .read_data  ( stack_read_data  ) 
+    );
+
+    assign result = stack_read_data;
+
+    reg  [15:0] r_alu_a;
+    reg  [15:0] r_alu_b;
+    reg         r_alu_multiply;
+    reg  [ 1:0] state;
+
+    reg  [ 1:0] next_state;
+
+    always @(*)
+    begin
+        alu_a            = r_alu_a;
+        alu_b            = r_alu_b;
+        alu_multiply     = r_alu_multiply;
+        stack_push       = 0;
+        stack_pop        = 0;
+        stack_write_data = data;
+        next_state       = state;
+
+        case (state)
+        0:
+           if (enter)
+           begin
+               stack_push       = 1;
+               stack_write_data = data;
+           end
+           else if (add | multiply)
+           begin
+               alu_a            = stack_read_data;
+               alu_multiply     = multiply;
+
+               stack_pop        = 1;
+               next_state       = 1;
+           end
+
+        1:
+           begin
+               alu_b            = stack_read_data;
+               stack_pop        = 1;
+               next_state       = 2;
+           end
+
+        2:
+           begin
+               stack_push       = 1;
+               stack_write_data = alu_result;
+               next_state       = 0;
+           end
+
+        endcase
+    end
+
+    always @(posedge clock)
+    begin
+        if (reset)
+        begin
+            r_alu_a        &lt;= 0;
+            r_alu_b        &lt;= 0;
+            r_alu_multiply &lt;= 0;
+            state          &lt;= 0;
+        end
+        else
+        begin
+            r_alu_a        &lt;= alu_a;
+            r_alu_b        &lt;= alu_b;
+            r_alu_multiply &lt;= alu_multiply;
+            state          &lt;= next_state;
+        end
+    end
+
+endmodule
+
+//-------------------------------------------------------------------------//
+//
+//  calculator_behavioral.v
+//
+//-------------------------------------------------------------------------//
+
+`include "defines.vh"
+
+module calculator_behavioral
+(
+    input             clock,
+    input             reset,
+    input             enter,
+    input             add,
+    input             multiply,
+    input      [ 7:0] data,
+    output reg [15:0] result,
+    output reg        overflow,
+    output reg [ 3:0] error
+);
+
+    reg [`stack_pointer_size - 1:0] sp;
+    reg [15:0] stack [0 : `stack_size - 1];
+    reg        empty;
+
+    reg [16:0] result_17;
+    reg [31:0] result_32;
+
+    integer i;
+
+    //  This software-like style is not a good RTL style because:
+    //
+    //  1. It mixes blocking and non-blocking assignments
+    //
+    //  2. It is difficult to figure out whether a reg
+    //     is going to become a flip-flop or a wire
+    //
+    //  3. It makes timing optimization difficult
+    //
+    //  However this style of coding is easier to read for a software
+    //  or a verification person
+
+    always @(posedge clock or posedge reset)
+    begin
+        if (reset)
+        begin
+            sp        =  0;
+            empty     =  1;
+
+            result    &lt;= 0;
+            overflow  &lt;= 0;
+            error     &lt;= 0;
+        end
+        else
+        begin
+            if (enter)
+            begin
+                if (sp == `stack_size - 1)
+                begin
+                    error &lt;= 1;
+                end
+                else
+                begin
+                    if (! empty)
+                        sp = sp + 1;
+
+                    empty = 0;
+
+                    for (i = `stack_size - 1; i &gt;= 1; i = i - 1)
+                        stack [i] = stack [i - 1];
+
+                    stack [0] = data;
+                end
+            end
+            else if (add)
+            begin
+                if (sp == 0)
+                begin
+                    error &lt;= 2;
+                end
+                else
+                begin
+                    sp = sp - 1;
+
+                    result_17 = stack [0] + stack [1];
+                    stack [0] = result_17 [15:0];
+                    overflow &lt;= result_17 [16];
+
+                    for (i = 1; i &lt;= `stack_size - 2; i = i + 1)
+                        stack [i] = stack [i + 1];
+                end
+            end
+            else if (multiply)
+            begin
+                if (sp == 0)
+                begin
+                    error &lt;= 3;
+                end
+                else
+                begin
+                    sp = sp - 1;
+
+                    result_32 = stack [0] * stack [1];
+                    stack [0] = result_32 [15:0];
+                    overflow &lt;= | result_32 [31:16];
+
+                    for (i = 1; i &lt;= `stack_size - 2; i = i + 1)
+                        stack [i] = stack [i + 1];
+                end
+            end
+
+            result &lt;= empty ? 0 : stack [0];
+        end
+    end
+
+endmodule
+
+//-------------------------------------------------------------------------//
+//
+//  defines.vh
+//
+//-------------------------------------------------------------------------//
+
+`ifdef word_width
+`else
+`define word_width 16
+`endif
+
+`ifdef stack_size
+`else
+`define stack_size 4
+`endif
+
+`ifdef stack_pointer_size
+`else
+`define stack_pointer_size 2
+`endif
+
+//-------------------------------------------------------------------------//
+//
+//  alu.v
+//
+//-------------------------------------------------------------------------//
+
+module alu
+(
+    input  [15:0] a,
+    input  [15:0] b,
+    input         multiply,
+    output [15:0] result,
+    output        overflow
+);
+
+    wire [16:0] result_add = a + b;
+    wire [31:0] result_mul = a * b;
+
+    assign result   = multiply ?   result_mul [15: 0] : result_add [15:0];
+    assign overflow = multiply ? | result_mul [31:16] : result_add [16];
+
+endmodule
+
+//-------------------------------------------------------------------------//
+//
+//  stack.v
+//
+//-------------------------------------------------------------------------//
+
+`include "defines.vh"
+
+module stack
+(
+    input  clock,
+    input  reset,
+    input  push,
+    input  pop,
+
+    input  [`word_width - 1:0] write_data,
+    output [`word_width - 1:0] read_data
+);
+
+    reg [`word_width - 1:0] stack [0:`stack_size - 1];
+
+    assign read_data = stack [0];
+
+    integer i;
+
+    always @(posedge clock)
+    begin
+        if (reset)
+        begin
+            for (i = 0; i &lt; `stack_size; i = i + 1)
+                stack [i] &lt;= 0;
+        end
+        else if (push)
+        begin
+            for (i = 0; i &lt; `stack_size - 1; i = i + 1)
+                stack [i + 1] &lt;= stack [i];
+
+            stack [0] &lt;= write_data;
+        end
+        else if (pop)
+        begin
+            for (i = 0; i &lt; `stack_size - 1; i = i + 1)
+                stack [i] &lt;= stack [i + 1];
+
+            stack [`stack_size - 1] &lt;= 0;
+        end
+    end
+
+endmodule
+
+//-------------------------------------------------------------------------//
+//
+//  chip.ucf
+//
+//-------------------------------------------------------------------------//
+
+NET "mclk" LOC = "B8"; # Bank = 0, Signal name = MCLK
+NET "mclk" CLOCK_DEDICATED_ROUTE = FALSE;
+
+NET "mclk" PERIOD = 20 ns HIGH 50%;
+
+#TIMESPEC TS01 = FROM : FFS : TO : FFS : 20 ns;
+#TIMESPEC TS02 = FROM : RAMS : TO : FFS : 20 ns;
+#TIMESPEC TS03 = FROM : FFS : TO : RAMS : 20 ns;
+#TIMESPEC TS04 = FROM : RAMS : TO : RAMS : 20 ns;
+#TIMESPEC TS05 = FROM : FFS : TO : PADS : 20 ns;
+#TIMESPEC TS06 = FROM : PADS : TO : FFS : 20 ns;
+#TIMESPEC TS07 = FROM : PADS : TO : RAMS : 20 ns;
+
+
+# Pin assignment for DispCtl
+# Connected to Basys2 onBoard 7seg display
+NET "seg&lt;0&gt;" LOC = "L14"; # Bank = 1, Signal name = CA
+NET "seg&lt;1&gt;" LOC = "H12"; # Bank = 1, Signal name = CB
+NET "seg&lt;2&gt;" LOC = "N14"; # Bank = 1, Signal name = CC
+NET "seg&lt;3&gt;" LOC = "N11"; # Bank = 2, Signal name = CD
+NET "seg&lt;4&gt;" LOC = "P12"; # Bank = 2, Signal name = CE
+NET "seg&lt;5&gt;" LOC = "L13"; # Bank = 1, Signal name = CF
+NET "seg&lt;6&gt;" LOC = "M12"; # Bank = 1, Signal name = CG
+NET "dp" LOC = "N13"; # Bank = 1, Signal name = DP
+
+NET "an&lt;3&gt;" LOC = "K14"; # Bank = 1, Signal name = AN3
+NET "an&lt;2&gt;" LOC = "M13"; # Bank = 1, Signal name = AN2
+NET "an&lt;1&gt;" LOC = "J12"; # Bank = 1, Signal name = AN1
+NET "an&lt;0&gt;" LOC = "F12"; # Bank = 1, Signal name = AN0
+
+# Pin assignment for LEDs
+NET "Led&lt;7&gt;" LOC = "G1" ; # Bank = 3, Signal name = LD7
+NET "Led&lt;6&gt;" LOC = "P4" ; # Bank = 2, Signal name = LD6
+NET "Led&lt;5&gt;" LOC = "N4" ;  # Bank = 2, Signal name = LD5
+NET "Led&lt;4&gt;" LOC = "N5" ;  # Bank = 2, Signal name = LD4
+NET "Led&lt;3&gt;" LOC = "P6" ; # Bank = 2, Signal name = LD3
+NET "Led&lt;2&gt;" LOC = "P7" ; # Bank = 3, Signal name = LD2
+NET "Led&lt;1&gt;" LOC = "M11" ; # Bank = 2, Signal name = LD1
+NET "Led&lt;0&gt;" LOC = "M5" ;  # Bank = 2, Signal name = LD0
+
+# Pin assignment for SWs
+NET "sw&lt;7&gt;" LOC = "N3";  # Bank = 2, Signal name = SW7
+NET "sw&lt;6&gt;" LOC = "E2";  # Bank = 3, Signal name = SW6
+NET "sw&lt;5&gt;" LOC = "F3";  # Bank = 3, Signal name = SW5
+NET "sw&lt;4&gt;" LOC = "G3";  # Bank = 3, Signal name = SW4
+NET "sw&lt;3&gt;" LOC = "B4";  # Bank = 3, Signal name = SW3
+NET "sw&lt;2&gt;" LOC = "K3";  # Bank = 3, Signal name = SW2
+NET "sw&lt;1&gt;" LOC = "L3";  # Bank = 3, Signal name = SW1
+NET "sw&lt;0&gt;" LOC = "P11";  # Bank = 2, Signal name = SW0
+
+NET "btn&lt;3&gt;" LOC = "A7";  # Bank = 1, Signal name = BTN3
+NET "btn&lt;2&gt;" LOC = "M4";  # Bank = 0, Signal name = BTN2
+NET "btn&lt;1&gt;" LOC = "C11"; # Bank = 2, Signal name = BTN1
+NET "btn&lt;0&gt;" LOC = "G12"; # Bank = 0, Signal name = BTN0
+
+//-------------------------------------------------------------------------//
+//
+//  chip.v
+//
+//-------------------------------------------------------------------------//
+
+module chip
+(
+    input        mclk,
+    output [6:0] seg,
+    output       dp,
+    output [3:0] an,
+    output [7:0] Led,
+    input  [7:0] sw,
+    input  [3:0] btn
+);
+
+    system system
+    (
+        .clock          ( mclk ),
+        .switches       ( sw   ),
+        .buttons        ( btn  ),
+        .leds           ( Led  ),
+        .seven_segments ( seg  ),
+        .dot            ( dp   ),
+        .anodes         ( an   )
+    );
+
+endmodule
+
+//-------------------------------------------------------------------------//
+//
+//  system.v
+//
+//-------------------------------------------------------------------------//
+
+module system
+(
+    input            clock,
+    input      [7:0] switches,
+    input      [3:0] buttons,
+    output reg [7:0] leds,
+    output     [6:0] seven_segments,
+    output           dot,
+    output     [3:0] anodes
+);
+
+    wire reset = buttons [3];
+    wire clock_for_debouncing;
+    wire clock_for_display;
+
+    clock_divider clock_divider
+    (
+        clock,
+        reset,
+        clock_for_debouncing,
+        clock_for_display
+    );
+
+    wire enter;
+    wire add;
+    wire multiply;
+
+    debouncer debouncer2
+        ( clock, clock_for_debouncing, reset, buttons [2], enter    );
+
+    debouncer debouncer1
+        ( clock, clock_for_debouncing, reset, buttons [1], add      );
+
+    debouncer debouncer0
+        ( clock, clock_for_debouncing, reset, buttons [0], multiply );
+
+    wire [ 7:0] data;
+    wire [15:0] result;
+    wire        overflow;
+    wire [ 3:0] error;
+
+    assign data = switches;
+
+    display display
+    (
+        clock_for_display,
+        reset,
+        result,
+        overflow,
+        error,
+        seven_segments,
+        dot,
+        anodes
+    );
+
+    calculator calculator
+    (
+        clock,
+        reset,
+        enter,
+        add,
+        multiply,
+        data,
+        result,
+        overflow,
+        error
+    );
+
+    always @(posedge clock_for_display)
+        leds &lt;= reset ? 0 : switches;
+
+endmodule
+
+//-------------------------------------------------------------------------//
+//
+//  clock_divider.v
+//
+//-------------------------------------------------------------------------//
+
+module clock_divider
+(
+    input  clock,
+    input  reset,
+    output clock_for_debouncing,
+    output clock_for_display
+);
+
+    reg [19:0] counter;
+
+    always @(posedge clock)
+    begin
+        if (reset)
+            counter &lt;= 0;
+        else
+            counter &lt;= counter + 1;
+    end
+
+    assign clock_for_debouncing = counter [19];
+    assign clock_for_display    = counter [15];
+
+endmodule
+
+//-------------------------------------------------------------------------//
+//
+//  debouncer.v
+//
+//-------------------------------------------------------------------------//
+
+module debouncer
+(
+    input      clock,
+    input      clock_for_debouncing,
+    input      reset,
+    input      button,
+    output reg push
+);
+
+    reg [2:0] samples;
+
+    always @(posedge clock_for_debouncing)
+    begin
+        if (reset)
+            samples &lt;= 0;
+        else
+            samples &lt;= { samples [1:0], button };
+    end
+
+    wire current = & samples;
+    reg  previous;
+
+    always @(posedge clock)
+    begin
+        if (reset)
+        begin
+            previous &lt;= 0;
+            push     &lt;= 0;
+        end
+        else
+        begin
+            previous &lt;= current;
+            push     &lt;= { previous, current } == 2'b01;
+        end
+    end
+
+endmodule
+
+//-------------------------------------------------------------------------//
+//
+//  display.v
+//
+//-------------------------------------------------------------------------//
+
+module display
+(
+    input             clock,
+    input             reset,
+    input      [15:0] number,
+    input             overflow,
+    input      [ 3:0] error,
+
+    output reg [ 6:0] seven_segments,
+    output reg        dot,
+    output reg [ 3:0] anodes
+);
+
+    parameter [6:0] seg_E = 'b0000110;
+    parameter [6:0] seg_r = 'b0101111;
+
+    function [6:0] bcd_to_seg (input [3:0] bcd);
+
+        case (bcd)
+        'h0: bcd_to_seg = 'b1000000;  // a b c d e f g
+        'h1: bcd_to_seg = 'b1111001;
+        'h2: bcd_to_seg = 'b0100100;  //   --a--
+        'h3: bcd_to_seg = 'b0110000;  //  |     |
+        'h4: bcd_to_seg = 'b0011001;  //  f     b
+        'h5: bcd_to_seg = 'b0010010;  //  |     |
+        'h6: bcd_to_seg = 'b0000010;  //   --g--
+        'h7: bcd_to_seg = 'b1111000;  //  |     |
+        'h8: bcd_to_seg = 'b0000000;  //  e     c
+        'h9: bcd_to_seg = 'b0011000;  //  |     |
+        'ha: bcd_to_seg = 'b0001000;  //   --d-- 
+        'hb: bcd_to_seg = 'b0000011;
+        'hc: bcd_to_seg = 'b1000110;
+        'hd: bcd_to_seg = 'b0100001;
+        'he: bcd_to_seg = 'b0000110;
+        'hf: bcd_to_seg = 'b0001110;
+        endcase
+
+    endfunction
+
+    reg [1:0] i;
+
+    always @(posedge clock)
+    begin
+        if (reset)
+        begin
+            i &lt;= 0;
+
+            seven_segments &lt;=   bcd_to_seg (0);
+            dot            &lt;= ~ 0;
+            anodes         &lt;= ~ 'b1111;
+        end
+        else
+        begin
+            if (error != 0)
+            begin
+                case (i)
+                0    : seven_segments &lt;= bcd_to_seg (error);
+                1, 2 : seven_segments &lt;= seg_r;
+                3    : seven_segments &lt;= seg_E;
+                endcase
+
+                dot            &lt;= ~ 0;
+                anodes         &lt;= ~ (1 &lt;&lt; i);
+            end
+            else
+            begin
+                seven_segments &lt;=   bcd_to_seg (number [i * 4 +: 4]);
+                dot            &lt;= ~ (i == 0 ? overflow : 0);
+                anodes         &lt;= ~ (1 &lt;&lt; i);
+            end
+
+            i &lt;= i + 1;
+        end
+    end
+
+endmodule
+
+//-------------------------------------------------------------------------//
+//
+//  testbench.v
+//
+//-------------------------------------------------------------------------//
+
+module testbench;
+
+    reg         clock;
+    reg         reset;
+    reg         enter;
+    reg         add;
+    reg         multiply;
+    reg  [ 7:0] data;
+    wire [15:0] result;
+    wire        overflow;
+    wire [ 3:0] error;
+
+    calculator calculator
+    (
+        clock,
+        reset,
+        enter,
+        add,
+        multiply,
+        data,
+        result,
+        overflow,
+        error
+    );
+
+    initial
+    begin
+        clock = 0;
+
+        forever
+            # 5 clock = ! clock;
+    end
+
+    //----------------------------------------------------------------
+
+    task dump;
+    begin
+
+        $write   ("data=%h enter=%h add=%h multiply=%h",
+                   data,   enter,   add,   multiply);
+
+        $display (" result=%h overflow=%h error=%h",
+                    result,   overflow,   error);
+
+    end
+    endtask
+
+    task t_reset;
+    begin
+
+        reset     &lt;= 1; repeat (10) @(posedge clock);
+
+        enter     &lt;= 0;
+        add       &lt;= 0;
+        multiply  &lt;= 0;
+        data      &lt;= 0;
+
+        reset     &lt;= 0; repeat (10) @(posedge clock);
+
+        $write ("After reset    "); dump;
+
+    end
+    endtask
+
+    task t_enter (input [7:0] value);
+    begin
+
+        data      &lt;= value;
+        enter     &lt;= 1;             @(posedge clock);
+        enter     &lt;= 0; repeat (10) @(posedge clock);
+
+        $write ("After enter %x ", value); dump;
+
+    end
+    endtask
+
+    task t_add;
+    begin
+
+        add       &lt;= 1;             @(posedge clock);
+        add       &lt;= 0; repeat (10) @(posedge clock);
+
+        $write ("After add      "); dump;
+
+    end
+    endtask
+
+    task t_multiply;
+    begin
+
+        multiply  &lt;= 1;             @(posedge clock);
+        multiply  &lt;= 0; repeat (10) @(posedge clock);
+
+        $write ("After multiply "); dump;
+
+    end
+    endtask
+
+    //----------------------------------------------------------------
+
+    initial
+    begin
+        $display ("********  2 3 * 4 5 * + ********");
+
+        t_reset;
+
+        t_enter (2);
+        t_enter (3);
+        t_multiply;
+        t_enter (4);
+        t_enter (5);
+        t_multiply;
+        t_add;
+
+        $display ("********  ff ff ff * * overflow ********");
+
+        t_reset;
+
+        t_enter ('hff);
+        t_enter ('hff);
+        t_enter ('hff);
+        t_multiply;
+        t_multiply;
+
+        $display ("********  ff 1 + ff * ff + 1 + overflow ********");
+
+        t_reset;
+
+        t_enter ('hff);
+        t_enter ('h01);
+        t_add;
+        t_enter ('hff);
+        t_multiply;
+        t_enter ('hff);
+        t_add;
+        t_enter ('h01);
+        t_add;
+
+        $display ("********  1 2 3 4 5 * * * * * ********");
+
+        t_reset;
+
+        t_enter ('h01);
+        t_enter ('h02);
+        t_enter ('h03);
+        t_enter ('h04);
+        t_enter ('h05);
+        repeat (5) t_multiply;
+
+        $finish;
+    end
+
+    initial $dumpvars;
+
+endmodule
+</pre>
+</p>
+</body>
+</html>
+

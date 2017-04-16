@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm -rf sim
+mkdir sim
+cd sim
+
+ncverilog  \
+    -Q +access+r +incdir+..  \
+    +nclog_ncsim+../log_rtl.log  \
+    ../*.v

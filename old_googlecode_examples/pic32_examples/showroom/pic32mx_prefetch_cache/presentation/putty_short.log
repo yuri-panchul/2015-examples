@@ -1,0 +1,130 @@
+UART: Peripheral bus: 20000000 Hz, baud rate: 9600
+************************************************************
+************************************************************
+************************************************************
+*                                                          *
+*       Sep  6 2013                                        *
+*       20:33:48                                           *
+*                                                          *
+************************************************************
+
+array_in_flash dump:
+
+9D003890:  00000000 00000001 00000002 00000003
+9D0038A0:  00000004 00000005 00000006 00000007
+9D0038B0:  00000008 00000009 0000000A 0000000B
+9D0038C0:  0000000C 0000000D 0000000E 0000000F
+9D0038D0:  27BDFFA8 AFB60048 AFB3003C AFB00030
+9D0038E0:  AFBF0054 AFBE0050 AFB7004C AFB50044
+9D0038F0:  AFB40040 AFB20038 AFB10034 00809821
+9D003900:  00A08021 AFA60060 0000B021 82040000
+
+
+array_in_ram dump:
+
+                             ******** ********
+A0000338:  00000000 00000000 00000000 00000001
+A0000348:  00000002 00000003 00000004 00000005
+A0000358:  00000006 00000007 00000008 00000009
+A0000368:  0000000A 0000000B 0000000C 0000000D
+A0000378:  0000000E 0000000F 00000000 00000000
+A0000388:  00000000 00000000 00000000 00000000
+A0000398:  00000000 00000000 00000000 00000000
+A00003A8:  00000000 00000000 00000000 00000000
+
+************************************************************
+*                                                          *
+*       Default configuration                              *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                  340040
+program_in_flash_data_in_ram____loop                  404040
+program_in_ram___data_in_flash__loop                  117013
+program_in_ram___data_in_ram____loop                  101013
+program_in_flash_data_in_flash__long_sequence         300604
+program_in_flash_data_in_ram____long_sequence         237100
+program_in_ram___data_in_flash__long_sequence         114345
+program_in_ram___data_in_ram____long_sequence          66594
+************************************************************
+*                                                          *
+*       Lower number of flash wait states                  *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                  170022
+program_in_flash_data_in_ram____loop                  202022
+program_in_ram___data_in_flash__loop                   85013
+program_in_ram___data_in_ram____loop                  101013
+program_in_flash_data_in_flash__long_sequence         150304
+program_in_flash_data_in_ram____long_sequence         118552
+program_in_ram___data_in_flash__long_sequence          82345
+program_in_ram___data_in_ram____long_sequence          66594
+************************************************************
+*                                                          *
+*       Enable flash prefetch                              *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                  139513
+program_in_flash_data_in_ram____loop                   90514
+program_in_ram___data_in_flash__loop                   85013
+program_in_ram___data_in_ram____loop                  101013
+program_in_flash_data_in_flash__long_sequence         111281
+program_in_flash_data_in_ram____long_sequence          68779
+program_in_ram___data_in_flash__long_sequence          82346
+program_in_ram___data_in_ram____long_sequence          66595
+************************************************************
+*                                                          *
+*       Enable flash cache                                 *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                   66514
+program_in_flash_data_in_ram____loop                   58515
+program_in_ram___data_in_flash__loop                   85013
+program_in_ram___data_in_ram____loop                  101013
+program_in_flash_data_in_flash__long_sequence          96528
+program_in_flash_data_in_ram____long_sequence          68590
+program_in_ram___data_in_flash__long_sequence          82346
+program_in_ram___data_in_ram____long_sequence          66594
+************************************************************
+*                                                          *
+*       Enable flash data caching                          *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                   42520
+program_in_flash_data_in_ram____loop                   58515
+program_in_ram___data_in_flash__loop                   69017
+program_in_ram___data_in_ram____loop                  101013
+program_in_flash_data_in_flash__long_sequence          70222
+program_in_flash_data_in_ram____long_sequence          68590
+program_in_ram___data_in_flash__long_sequence          62287
+program_in_ram___data_in_ram____long_sequence          66594
+************************************************************
+*                                                          *
+*       Set zero state data RAM access                     *
+*                                                          *
+************************************************************
+program_in_flash_data_in_flash__loop                   42519
+program_in_flash_data_in_ram____loop                   50514
+program_in_ram___data_in_flash__loop                   34513
+program_in_ram___data_in_ram____loop                   58507
+program_in_flash_data_in_flash__long_sequence          64022
+program_in_flash_data_in_ram____long_sequence          56764
+program_in_ram___data_in_flash__long_sequence          43468
+program_in_ram___data_in_ram____long_sequence          51024
+************************************************************
+*                                                          *
+*       Dump test result table                             *
+*                                                          *
+************************************************************
+
+	Program Flash, Data Flash, Loop	Program Flash, Data RAM, Loop	Program RAM, Data Flash, Loop	Program RAM, Data RAM, Loop	Program Flash, Data Flash, Sequence	Program Flash, Data RAM, Sequence	Program RAM, Data Flash, Sequence	Program RAM, Data RAM, Sequence
+                    	 PF DF L 	 PF DR L 	 PR DF L 	 PR DR L 	 PF DF S 	 PF DR S 	 PR DF S 	 PR DR S 
+Default              	  340040	  404040	  117013	  101013	  300604	  237100	  114345	   66594
+Min flash wait states	  170022	  202022	   85013	  101013	  150304	  118552	   82345	   66594
+Flash prefetch       	  139513	   90514	   85013	  101013	  111281	   68779	   82346	   66595
+Flash program cache  	   66514	   58515	   85013	  101013	   96528	   68590	   82346	   66594
+Flash data cache     	   42520	   58515	   69017	  101013	   70222	   68590	   62287	   66594
+Zero wait state RAM  	   42519	   50514	   34513	   58507	   64022	   56764	   43468	   51024
+
+************************************************************
+************************************************************
+************************************************************
